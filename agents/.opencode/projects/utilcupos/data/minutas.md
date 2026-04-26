@@ -1,0 +1,3 @@
+# MINUTAS
+
+Sin minutas registradas.

@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Plan de Gestion del Proyecto - Utilizaciones de Cupos</title>
+  <style>
+    body { font-family: Arial, sans-serif; color: #1e293a; margin: 32px; line-height: 1.35; }
+    h1, h2 { color: #0f766e; }
+    h1 { font-size: 24pt; margin-bottom: 4px; }
+    h2 { font-size: 16pt; margin-top: 22px; margin-bottom: 8px; }
+    p, li { font-size: 10.5pt; }
+    table { border-collapse: collapse; width: 100%; margin: 10px 0 16px 0; }
+    th, td { border: 1px solid #cbd5e1; padding: 6px 8px; vertical-align: top; font-size: 10pt; }
+    th { background: #0f766e; color: white; text-align: left; }
+    tr:nth-child(even) td { background: #f8fafc; }
+    .meta { color: #475569; font-size: 10pt; margin-bottom: 18px; }
+    .note { font-style: italic; color: #475569; }
+  </style>
+</head>
+<body>
+  <h1>PLAN DE GESTION DEL PROYECTO</h1>
+  <div class="meta">WO0000000358906 - Utilizaciones de Cupos | Version 1.0 | Fecha 20-abr-2026 | PM: Valeria Rivera Rico</div>
+
+  <h2>1. Informacion General</h2>
+  <table>
+    <tr><th>Campo</th><th>Valor</th></tr>
+    <tr><td>Proyecto</td><td>WO0000000358906 - Utilizaciones de Cupos</td></tr>
+    <tr><td>Codigo</td><td>utilcupos</td></tr>
+    <tr><td>Cliente</td><td>Bancoomeva</td></tr>
+    <tr><td>Organizacion ejecutora</td><td>VortexBird</td></tr>
+    <tr><td>Gerente de Proyecto</td><td>Valeria Rivera Rico</td></tr>
+    <tr><td>Soporte PM</td><td>Raul Collazos Castillo</td></tr>
+    <tr><td>Product Owner VortexBird</td><td>Ingrid Y. Mosquera</td></tr>
+    <tr><td>Product Owner cliente</td><td>Adriana Muñoz Ñañez</td></tr>
+    <tr><td>Patrocinador del frente</td><td>Keilly Barona</td></tr>
+    <tr><td>Fecha de inicio</td><td>20-abr-2026</td></tr>
+    <tr><td>Fecha compromiso</td><td>14-may-2026</td></tr>
+    <tr><td>Duracion comprometida</td><td>1 mes</td></tr>
+    <tr><td>Semaforo inicial</td><td>Amarillo</td></tr>
+    <tr><td>Presupuesto</td><td>No aplica para la gestion operativa del proyecto</td></tr>
+  </table>
+
+  <h2>2. Proposito del Proyecto</h2>
+  <p>Implementar el modulo de Utilizacion de Cupos para Bancoomeva con foco inmediato en la entrega del servicio <b>utilizarCuposOrq</b> y el desarrollo paralelo de las historias funcionales priorizadas que afectan directamente la solucion al cliente.</p>
+
+  <h2>3. Objetivos de Gestion</h2>
+  <ol>
+    <li>Cumplir la fecha compromiso del 14-may-2026.</li>
+    <li>Entregar <b>utilizarCuposOrq</b> sin mediacion como primer entregable critico.</li>
+    <li>Coordinar el desarrollo paralelo de HU-BCO-004 a HU-BCO-015.</li>
+    <li>Habilitar la entrada de QA despues del cierre del bloque funcional comprometido para el 04-may-2026.</li>
+    <li>Mantener control visible sobre dependencias del cliente e Interoperabilidad.</li>
+  </ol>
+
+  <h2>4. Alcance de Gestion</h2>
+  <p><b>Incluido en la prioridad inmediata:</b></p>
+  <ul>
+    <li>Gestion de entrega del servicio utilizarCuposOrq.</li>
+    <li>Gestion del desarrollo de HU-BCO-004 a HU-BCO-015.</li>
+    <li>Coordinacion de QA posterior al cierre de desarrollo.</li>
+    <li>Seguimiento de dependencias abiertas del cliente.</li>
+    <li>Monitoreo de cambios tecnicos asociados a CrearPrestamoORQ V4 CC4.</li>
+  </ul>
+  <p><b>Excluido de la prioridad inmediata:</b></p>
+  <ul>
+    <li>Historias de la Epica 1.</li>
+    <li>La mediacion del servicio utilizarCupos.</li>
+  </ul>
+  <p class="note">La solicitud formal de la mediacion utilizarCupos debe ser gestionada por el frente banca con la celula de Interoperabilidad Bancoomeva y no hace parte del alcance del proyecto.</p>
+
+  <h2>5. Gobierno del Proyecto</h2>
+  <table>
+    <tr><th>Tema</th><th>Responsable</th></tr>
+    <tr><td>Direccion del proyecto</td><td>Valeria Rivera Rico</td></tr>
+    <tr><td>Soporte PM</td><td>Raul Collazos Castillo</td></tr>
+    <tr><td>Aprobaciones funcionales</td><td>Adriana Muñoz Ñañez</td></tr>
+    <tr><td>Aprobaciones tecnicas</td><td>Diana Carolina Restrepo</td></tr>
+    <tr><td>Priorizacion</td><td>Adriana Muñoz Ñañez y Monica Araque</td></tr>
+    <tr><td>Patrocinio del frente</td><td>Keilly Barona</td></tr>
+  </table>
+
+  <h2>6. Estructura del Equipo</h2>
+  <table>
+    <tr><th>Nombre</th><th>Rol</th><th>Dedicacion</th></tr>
+    <tr><td>Valeria Rivera Rico</td><td>Gerente de Proyecto</td><td>4 horas diarias</td></tr>
+    <tr><td>Raul Collazos Castillo</td><td>Soporte PM</td><td>Bajo demanda</td></tr>
+    <tr><td>Ingrid Y. Mosquera</td><td>Product Owner VortexBird</td><td>Bajo demanda segun dudas funcionales</td></tr>
+    <tr><td>Christian Ospina</td><td>Arquitecto de Soluciones</td><td>Por definir</td></tr>
+    <tr><td>Sebastian Garcia</td><td>Apoyo de Arquitectura</td><td>Por definir</td></tr>
+    <tr><td>Jurgen Sanclemente</td><td>Desarrollo / Orquestacion</td><td>100% en utilizarCuposOrq</td></tr>
+    <tr><td>Sebastian Caicedo</td><td>Desarrollo funcional</td><td>100%</td></tr>
+    <tr><td>David Velazco</td><td>Desarrollo funcional</td><td>100%</td></tr>
+    <tr><td>Kathereen Gonzalez</td><td>QA</td><td>100% despues de finalizar desarrollo</td></tr>
+  </table>
+
+  <h2>7. Estrategia de Ejecucion</h2>
+  <p><b>Frente 1: Orquestacion.</b> Responsable principal: Jurgen Sanclemente. Entregable critico: utilizarCuposOrq sin mediacion. Fecha objetivo inmediata: lunes de la proxima semana.</p>
+  <p><b>Frente 2: Desarrollo funcional.</b> Responsables: Sebastian Caicedo y David Velazco. Historias objetivo: HU-BCO-004 a HU-BCO-015. Compromiso del equipo: entrega el 04-may-2026 para habilitar QA.</p>
+  <p><b>Frente 3: QA.</b> Responsable: Kathereen Gonzalez. Inicio: una vez finalice el bloque de desarrollo comprometido.</p>
+
+  <h2>8. Cronograma Base de Gestion</h2>
+  <table>
+    <tr><th>Hito</th><th>Fecha</th><th>Estado</th></tr>
+    <tr><td>Inicio oficial del proyecto</td><td>20-abr-2026</td><td>Confirmado</td></tr>
+    <tr><td>Entrega utilizarCuposOrq sin mediacion</td><td>27-abr-2026</td><td>Compromiso inmediato</td></tr>
+    <tr><td>Entrega funcional Sebastian y David</td><td>04-may-2026</td><td>Comprometido</td></tr>
+    <tr><td>Inicio QA</td><td>04-may-2026 o siguiente dia habil</td><td>Planeado</td></tr>
+    <tr><td>Fecha compromiso del proyecto</td><td>14-may-2026</td><td>Baseline formal</td></tr>
+  </table>
+  <p><b>Calendario no laborable:</b> 01-may-2026, 18-may-2026, 08-jun-2026, 15-jun-2026 y 29-jun-2026.</p>
+
+  <h2>9. Gestion del Alcance y Priorizacion</h2>
+  <ul>
+    <li>La Epica 1 queda fuera de la prioridad inmediata.</li>
+    <li>Se priorizan historias que impactan funcionalmente la solucion del cliente.</li>
+    <li>No hay HUs exclusivamente de backend; el frente de orquestacion participa transversalmente excepto en HU-BCO-003 y HU3 NoFuncional.</li>
+    <li>Todo cambio nuevo que afecte integraciones, cronograma o exclusiones debe registrarse como cambio formal.</li>
+  </ul>
+
+  <h2>10. Gestion de Dependencias</h2>
+  <table>
+    <tr><th>ID</th><th>Dependencia</th><th>Dueño</th><th>Estado</th></tr>
+    <tr><td>DEP-001</td><td>API consultarCotizacionMoneda para conversion del campo codigo moneda</td><td>Bancoomeva</td><td>Pendiente cliente</td></tr>
+    <tr><td>DEP-002</td><td>Contrato del servicio orquestadorDeTransacciones llamado por UtilizacionCuposOrq</td><td>Bancoomeva</td><td>Pendiente cliente</td></tr>
+    <tr><td>DEP-003</td><td>Detalle tecnico del cambio CC4 sobre CrearPrestamoORQ V4</td><td>Interoperabilidad / Bancoomeva</td><td>Pendiente analisis</td></tr>
+    <tr><td>DEP-004</td><td>Solicitud formal de la mediacion utilizarCupos a Interoperabilidad</td><td>Frente banca Bancoomeva</td><td>Pendiente</td></tr>
+  </table>
+
+  <h2>11. Gestion de Riesgos</h2>
+  <table>
+    <tr><th>Riesgo</th><th>Descripcion</th><th>Respuesta</th></tr>
+    <tr><td>R-001</td><td>Dependencias externas del cliente no liberadas a tiempo</td><td>Escalar y hacer seguimiento diario hasta liberacion</td></tr>
+    <tr><td>R-002</td><td>Cambio CC4 sin detalle suficiente</td><td>Solicitar definicion tecnica y evaluar impacto inmediato</td></tr>
+    <tr><td>R-003</td><td>Presion de cronograma por ventana corta</td><td>Foco estricto en alcance priorizado y exclusiones claras</td></tr>
+    <tr><td>R-004</td><td>Inicio tardio de QA por retraso en desarrollo</td><td>Monitoreo diario de hitos del 27-abr y 04-may</td></tr>
+  </table>
+
+  <h2>12. Gestion de Comunicaciones</h2>
+  <table>
+    <tr><th>Comunicacion</th><th>Frecuencia</th><th>Audiencia</th><th>Responsable</th></tr>
+    <tr><td>Seguimiento operativo</td><td>Diario</td><td>Equipo VortexBird</td><td>Valeria Rivera Rico</td></tr>
+    <tr><td>Aclaraciones funcionales</td><td>Bajo demanda</td><td>Equipo + Adriana Muñoz Ñañez</td><td>Ingrid Y. Mosquera / PM</td></tr>
+    <tr><td>Revision de prioridades</td><td>Segun necesidad</td><td>Bancoomeva</td><td>Adriana Muñoz Ñañez y Monica Araque</td></tr>
+    <tr><td>Escalacion de bloqueos</td><td>Inmediata</td><td>Sponsor del frente / tecnicos</td><td>PM</td></tr>
+    <tr><td>Reporte de estado</td><td>Semanal o segun corte</td><td>Cliente y VortexBird</td><td>PM</td></tr>
+  </table>
+
+  <h2>13. Gestion de Calidad</h2>
+  <ul>
+    <li>QA inicia cuando finalice el desarrollo comprometido.</li>
+    <li>Se debe validar el frente de orquestacion y el frente funcional antes de cierre.</li>
+    <li>Los defectos bloqueantes deben resolverse antes de declarar lista la entrega.</li>
+    <li>Los cambios de integracion no documentados no se aceptan sin validacion tecnica.</li>
+  </ul>
+
+  <h2>14. Criterios de Exito</h2>
+  <ol>
+    <li>utilizarCuposOrq entregado sin mediacion en la fecha comprometida.</li>
+    <li>Bloque funcional de Sebastian y David entregado el 04-may-2026.</li>
+    <li>QA ejecutado oportunamente.</li>
+    <li>Dependencias externas controladas y escaladas.</li>
+    <li>Proyecto listo para el 14-may-2026 dentro del alcance acordado.</li>
+  </ol>
+
+  <h2>15. Proximas Acciones Inmediatas</h2>
+  <table>
+    <tr><th>#</th><th>Accion</th><th>Responsable</th><th>Fecha</th></tr>
+    <tr><td>1</td><td>Entregar utilizarCuposOrq sin mediacion</td><td>Jurgen Sanclemente</td><td>27-abr-2026</td></tr>
+    <tr><td>2</td><td>Confirmar disponibilidad de consultarCotizacionMoneda</td><td>Bancoomeva</td><td>Inmediata</td></tr>
+    <tr><td>3</td><td>Recibir contrato de orquestadorDeTransacciones</td><td>Bancoomeva</td><td>Inmediata</td></tr>
+    <tr><td>4</td><td>Obtener detalle del CC4</td><td>Interoperabilidad / Bancoomeva</td><td>Inmediata</td></tr>
+    <tr><td>5</td><td>Entregar bloque funcional priorizado</td><td>Sebastian Caicedo / David Velazco</td><td>04-may-2026</td></tr>
+    <tr><td>6</td><td>Iniciar QA</td><td>Kathereen Gonzalez</td><td>04-may-2026 o siguiente habil</td></tr>
+  </table>
+
+  <h2>16. Control de Versiones</h2>
+  <table>
+    <tr><th>Version</th><th>Fecha</th><th>Cambio</th><th>Autor</th></tr>
+    <tr><td>1.0</td><td>20-abr-2026</td><td>Creacion inicial del plan de gestion del proyecto</td><td>OpenCode</td></tr>
+  </table>
+</body>
+</html>
