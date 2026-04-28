@@ -101,12 +101,12 @@ Posibles resultados:
 ### Paso 6 — Actualizar el plan del proyecto
 
 Si la CR es aprobada:
-1. Actualizar `projects/gestion-proyectos/data/cronograma.md` con nuevas fechas
-2. Actualizar `projects/gestion-proyectos/data/alcance-detallado.md` con el nuevo alcance
-3. Actualizar `projects/gestion-proyectos/data/presupuesto.md` si hay impacto financiero
-4. Actualizar `projects/gestion-proyectos/data/backlog.md` con nuevas tareas
-5. Registrar en `projects/gestion-proyectos/data/cambios.md`
-6. Actualizar `projects/gestion-proyectos/memory/decisiones.md`
+1. Actualizar `{project_path}/data/cronograma.md` con nuevas fechas
+2. Actualizar `{project_path}/data/alcance-detallado.md` con el nuevo alcance
+3. Actualizar `{project_path}/data/presupuesto.md` si hay impacto financiero
+4. Actualizar `{project_path}/data/backlog.md` con nuevas tareas
+5. Registrar en `{project_path}/data/cambios.md`
+6. Actualizar `{project_path}/memory/decisiones.md`
 7. Comunicar a los stakeholders afectados
 
 ### Paso 7 — Formato de log de cambios

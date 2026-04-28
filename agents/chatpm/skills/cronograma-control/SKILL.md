@@ -37,12 +37,12 @@ Controlar el cronograma del proyecto aplicando técnicas de gestión del tiempo 
 ### Paso 1 — Leer estado del cronograma
 
 Fuentes a consultar:
-1. `projects/gestion-proyectos/data/cronograma.md` — plan base con fechas y hitos
-2. `projects/gestion-proyectos/metrics/cronograma.md` — variaciones actuales
-3. `projects/gestion-proyectos/data/dependencias.md` — dependencias entre tareas
-4. `projects/gestion-proyectos/memory/compromisos.md` — compromisos con fecha
-5. `projects/gestion-proyectos/data/recursos.md` — capacidad del equipo
-6. `projects/gestion-proyectos/memory/historial.md` — eventos recientes
+1. `{project_path}/data/cronograma.md` — plan base con fechas y hitos
+2. `{project_path}/metrics/cronograma.md` — variaciones actuales
+3. `{project_path}/data/dependencias.md` — dependencias entre tareas
+4. `{project_path}/memory/compromisos.md` — compromisos con fecha
+5. `{project_path}/data/recursos.md` — capacidad del equipo
+6. `{project_path}/memory/historial.md` — eventos recientes
 
 ### Paso 2 — Calcular variaciones
 
@@ -127,10 +127,10 @@ SPI: [X] | Avance real: [X]% vs [X]% planificado
 
 ### Paso 7 — Actualizar archivos
 
-- `projects/gestion-proyectos/data/cronograma.md` — cronograma actualizado
-- `projects/gestion-proyectos/metrics/cronograma.md` — métricas actualizadas
-- `projects/gestion-proyectos/memory/historial.md` — evento registrado con URL del dashboard
-- `projects/gestion-proyectos/memory/compromisos.md` — nuevos compromisos generados
+- `{project_path}/data/cronograma.md` — cronograma actualizado
+- `{project_path}/metrics/cronograma.md` — métricas actualizadas
+- `{project_path}/memory/historial.md` — evento registrado con URL del dashboard
+- `{project_path}/memory/compromisos.md` — nuevos compromisos generados
 
 ---
 

@@ -154,3 +154,12 @@ ACCIONES INMEDIATAS (próximas 48h)
 COMUNICACIÓN REQUERIDA
 [Sí / No] | Destinatario: [nombre] | Mensaje: [borrador adjunto]
 ```
+
+
+---
+
+## Playbooks asociados
+
+Este comando puede activar los siguientes playbooks según el escenario detectado:
+- `atraso-cronograma`
+- `recuperacion-proyecto`

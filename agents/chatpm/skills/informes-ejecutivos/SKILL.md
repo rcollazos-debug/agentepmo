@@ -35,15 +35,15 @@ Generar reportes ejecutivos de alta calidad alineados con el Dominio de Desempe�
 ### Paso 1 — Leer fuentes de información
 
 En orden:
-1. `projects/gestion-proyectos/context/proyecto-base.md` — datos del proyecto
-2. `projects/gestion-proyectos/metrics/dashboard.md` — estado consolidado
-3. `projects/gestion-proyectos/metrics/cronograma.md` — variaciones SPI/SV
-4. `projects/gestion-proyectos/metrics/financiero.md` — variaciones CPI/CV
-5. `projects/gestion-proyectos/metrics/calidad.md` — estado de calidad
-6. `projects/gestion-proyectos/metrics/delivery.md` — entregables y hitos
-7. `projects/gestion-proyectos/memory/riesgo.md` — riesgos activos
-8. `projects/gestion-proyectos/memory/compromisos.md` — compromisos pendientes
-9. `projects/gestion-proyectos/memory/decisiones.md` — decisiones recientes
+1. `{project_path}/context/proyecto-base.md` — datos del proyecto
+2. `{project_path}/metrics/dashboard.md` — estado consolidado
+3. `{project_path}/metrics/cronograma.md` — variaciones SPI/SV
+4. `{project_path}/metrics/financiero.md` — variaciones CPI/CV
+5. `{project_path}/metrics/calidad.md` — estado de calidad
+6. `{project_path}/metrics/delivery.md` — entregables y hitos
+7. `{project_path}/memory/riesgo.md` — riesgos activos
+8. `{project_path}/memory/compromisos.md` — compromisos pendientes
+9. `{project_path}/memory/decisiones.md` — decisiones recientes
 
 ### Paso 2 — Determinar tipo de informe requerido
 
@@ -199,5 +199,5 @@ Período: [fechas] | Semáforo: [RAG]
 
 ### Paso 8 — Actualizar memoria
 
-- `projects/gestion-proyectos/memory/historial.md` — registrar que se emitió informe con URL del dashboard
-- `projects/gestion-proyectos/memory/decisiones.md` — decisiones tomadas en el comité
+- `{project_path}/memory/historial.md` — registrar que se emitió informe con URL del dashboard
+- `{project_path}/memory/decisiones.md` — decisiones tomadas en el comité

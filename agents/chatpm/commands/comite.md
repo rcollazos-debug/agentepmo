@@ -142,3 +142,11 @@ Después del comité registrar en:
 - `memory/decisiones.md` — decisiones tomadas
 - `memory/compromisos.md` — compromisos asumidos
 - `memory/historial.md` — evento del comité registrado
+
+
+---
+
+## Playbooks asociados
+
+Este comando puede activar los siguientes playbooks según el escenario detectado:
+- `steering-committee`

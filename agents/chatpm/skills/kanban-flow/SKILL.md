@@ -210,10 +210,10 @@ El item con mayor WSJF tiene mayor prioridad
 
 ### Paso 9 — Actualizar Archivos
 
-- `projects/gestion-proyectos/metrics/delivery.md` — Lead Time, Cycle Time, Throughput actualizados
-- `projects/gestion-proyectos/data/backlog.md` — backlog repriorizado
-- `projects/gestion-proyectos/memory/historial.md` — estado del flujo registrado
-- `projects/gestion-proyectos/metrics/dashboard.md` — semáforo de delivery actualizado
+- `{project_path}/metrics/delivery.md` — Lead Time, Cycle Time, Throughput actualizados
+- `{project_path}/data/backlog.md` — backlog repriorizado
+- `{project_path}/memory/historial.md` — estado del flujo registrado
+- `{project_path}/metrics/dashboard.md` — semáforo de delivery actualizado
 
 ---
 

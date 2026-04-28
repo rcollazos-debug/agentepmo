@@ -115,3 +115,12 @@ Post-activación del playbook:
 - `memory/historial.md` — registrar el evento y la decisión
 - `memory/compromisos.md` — compromisos del plan de recuperación
 - `memory/decisiones.md` — decisión sobre el plan tomada
+
+
+---
+
+## Activadores
+
+Este playbook se activa típicamente desde los siguientes comandos:
+- `/atrasos`
+- `/recovery`

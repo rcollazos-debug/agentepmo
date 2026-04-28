@@ -109,3 +109,11 @@ Una vez aprobada la decisión:
 - El equipo de desarrollo no acepta cambios directamente del cliente
 - Si el alcance crece, la fecha o el presupuesto deben crecer — o el alcance original se reduce
 - Documentar todo cambio rechazado también (para proteger al PM y al proveedor)
+
+
+---
+
+## Activadores
+
+Este playbook se activa típicamente desde los siguientes comandos:
+- `/cambios`

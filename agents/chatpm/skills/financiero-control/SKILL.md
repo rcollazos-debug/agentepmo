@@ -38,12 +38,12 @@ Controlar la salud financiera del proyecto con doble enfoque: (1) cumplimiento d
 ### Paso 1 — Leer contexto financiero
 
 Fuentes en orden:
-1. `projects/gestion-proyectos/context/vortexbird.md` — margen objetivo y modelo de negocio
-2. `projects/gestion-proyectos/metrics/financiero.md` — estado actual de KPIs financieros
-3. `projects/gestion-proyectos/data/presupuesto.md` — detalle del presupuesto por componente
-4. `projects/gestion-proyectos/data/recursos.md` — horas consumidas por rol
-5. `projects/gestion-proyectos/data/cambios.md` — CRs aprobadas con impacto económico
-6. `projects/gestion-proyectos/context/contrato.md` — modelo contractual y condiciones de pago
+1. `{project_path}/context/vortexbird.md` — margen objetivo y modelo de negocio
+2. `{project_path}/metrics/financiero.md` — estado actual de KPIs financieros
+3. `{project_path}/data/presupuesto.md` — detalle del presupuesto por componente
+4. `{project_path}/data/recursos.md` — horas consumidas por rol
+5. `{project_path}/data/cambios.md` — CRs aprobadas con impacto económico
+6. `{project_path}/context/contrato.md` — modelo contractual y condiciones de pago
 
 ---
 
@@ -137,7 +137,7 @@ Revisar y alertar cuando se detecte:
 
 ### Paso 5 — Analizar Hitos de Facturación
 
-Identificar en `projects/gestion-proyectos/data/cronograma.md`:
+Identificar en `{project_path}/data/cronograma.md`:
 - Próximos hitos de facturación
 - Entregables que liberan pago
 - Documentos necesarios para facturar (actas, informes)
@@ -226,10 +226,10 @@ Estado financiero: [🟢/🟡/🔴] | CPI: [X] | Margen proyectado: [X]%
 
 ### Paso 9 — Actualizar Archivos
 
-- `projects/gestion-proyectos/metrics/financiero.md` — KPIs actualizados
-- `projects/gestion-proyectos/memory/historial.md` — evento financiero registrado con URL del dashboard
-- `projects/gestion-proyectos/memory/decisiones.md` — si hay decisiones financieras tomadas
-- `projects/gestion-proyectos/metrics/dashboard.md` — actualizar semáforo financiero
+- `{project_path}/metrics/financiero.md` — KPIs actualizados
+- `{project_path}/memory/historial.md` — evento financiero registrado con URL del dashboard
+- `{project_path}/memory/decisiones.md` — si hay decisiones financieras tomadas
+- `{project_path}/metrics/dashboard.md` — actualizar semáforo financiero
 
 ---
 

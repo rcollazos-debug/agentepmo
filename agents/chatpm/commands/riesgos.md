@@ -120,3 +120,11 @@ ACCIONES REQUERIDAS
 ESCALACIONES RECOMENDADAS
 [lista con destinatario y urgencia]
 ```
+
+
+---
+
+## Playbooks asociados
+
+Este comando puede activar los siguientes playbooks según el escenario detectado:
+- `gestion-riesgos`

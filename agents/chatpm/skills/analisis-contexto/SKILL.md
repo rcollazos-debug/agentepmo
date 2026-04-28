@@ -5,6 +5,35 @@ description: Recopila, estructura y registra la información inicial de un proye
 
 # SKILL: Análisis de Contexto del Proyecto
 
+## Rol en la arquitectura
+
+**Este skill es el ORQUESTADOR de la fase inicial de contexto.** Se ejecuta una sola vez cuando un proyecto necesita configuración inicial. Combina entrevista al PM con la activación coordinada de los workers especializados.
+
+```
+analisis-contexto       → ESTE SKILL — orquestador (entrevista + dispara workers)
+                          Se ejecuta UNA VEZ al inicializar un proyecto
+
+recoleccion-contexto    → WORKER de fuentes vivas (Gmail, Calendar, Metabase)
+                          Se ejecuta CADA SESIÓN
+
+notebooklm-knowledge    → WORKER de documentos estáticos (propuestas, contratos)
+                          Se ejecuta BAJO DEMANDA o desde Fase 0 de este skill
+```
+
+**Este skill NO hace:**
+- ❌ Sync continuo de Gmail/Calendar — eso es `recoleccion-contexto`
+- ❌ Consulta especializada de NotebookLM — eso es `notebooklm-knowledge`
+- ❌ Seguimiento operativo del proyecto — eso es `seguimiento-proyecto`
+
+**Este skill SÍ hace:**
+- ✅ Entrevista estructurada al PM
+- ✅ Pre-carga inicial desde fuentes (Fase 0) — DELEGANDO en los workers
+- ✅ Crear los archivos base del proyecto
+- ✅ Análisis de viabilidad VortexBird
+- ✅ Confirmación final y próximos pasos
+
+---
+
 ## Propósito
 
 Recopilar, estructurar y registrar toda la información inicial de un proyecto nuevo para que el agente tenga el contexto completo necesario para operar como Director PMO Senior. Este skill convierte la información dispersa del cliente, el equipo y el contrato en archivos estructurados y listos para ser usados.
@@ -96,7 +125,7 @@ Recopilar o inferir los siguientes datos. Si alguno no está disponible, marcar 
 
 Con la información recopilada, actualizar o crear:
 
-**`projects/gestion-proyectos/context/proyecto-base.md`** — Actualizar:
+**`{project_path}/context/proyecto-base.md`** — Actualizar:
 - Información de identificación del proyecto
 - Descripción, objetivos SMART, criterios de éxito
 - Tipo de proyecto, metodología, modelo de contratación
@@ -106,24 +135,24 @@ Con la información recopilada, actualizar o crear:
 - Tecnología
 - Estado actual
 
-**`projects/gestion-proyectos/context/stakeholders.md`** — Actualizar:
+**`{project_path}/context/stakeholders.md`** — Actualizar:
 - Sponsor: nombre, contacto, poder, interés, estrategia
 - Interlocutor del cliente / PO: nombre, contacto, expectativas
 - Equipo interno VortexBird: roles y responsabilidades
 - Plan de comunicaciones inicial
 
-**`projects/gestion-proyectos/context/restricciones.md`** — Actualizar:
+**`{project_path}/context/restricciones.md`** — Actualizar:
 - Restricciones de alcance, tiempo y costo
 - Dependencias externas identificadas
 - Supuestos del proyecto
 
-**`projects/gestion-proyectos/context/contrato.md`** — Si aplica:
+**`{project_path}/context/contrato.md`** — Si aplica:
 - Modelo contractual
 - Condiciones de pago
 - Penalizaciones
 - Garantías post-entrega
 
-**`projects/gestion-proyectos/context/equipodetrabajodev.md`, `equipodetrabajopm.md`, `equipodetrabajoqa.md`, `equipodetrabajoro.md`** — Actualizar con personas y disponibilidad.
+**`{project_path}/context/equipodetrabajodev.md`, `equipodetrabajopm.md`, `equipodetrabajoqa.md`, `equipodetrabajoro.md`** — Actualizar con personas y disponibilidad.
 
 ---
 
@@ -131,38 +160,38 @@ Con la información recopilada, actualizar o crear:
 
 Crear o estructurar con datos iniciales:
 
-**`projects/gestion-proyectos/data/cronograma.md`** — Con fases y hitos mínimos basados en lo conocido.
+**`{project_path}/data/cronograma.md`** — Con fases y hitos mínimos basados en lo conocido.
 
-**`projects/gestion-proyectos/data/presupuesto.md`** — Con BAC, desglose inicial y hitos de facturación.
+**`{project_path}/data/presupuesto.md`** — Con BAC, desglose inicial y hitos de facturación.
 
-**`projects/gestion-proyectos/data/riesgos-iniciales.md`** — Con riesgos identificados en el análisis inicial.
+**`{project_path}/data/riesgos-iniciales.md`** — Con riesgos identificados en el análisis inicial.
 
-**`projects/gestion-proyectos/data/backlog.md`** — Si hay epicas o historias iniciales conocidas, registrarlas con estimación rough (T-shirt sizing).
+**`{project_path}/data/backlog.md`** — Si hay epicas o historias iniciales conocidas, registrarlas con estimación rough (T-shirt sizing).
 
-**`projects/gestion-proyectos/data/dependencias.md`** — Dependencias externas identificadas (integraciones, proveedores, decisiones del cliente).
+**`{project_path}/data/dependencias.md`** — Dependencias externas identificadas (integraciones, proveedores, decisiones del cliente).
 
 ---
 
 ### Paso 4 — Inicializar métricas
 
-**`projects/gestion-proyectos/metrics/dashboard.md`** — Actualizar con:
+**`{project_path}/metrics/dashboard.md`** — Actualizar con:
 - Datos del proyecto
 - Semáforo inicial (🟢 VERDE por defecto si no hay alertas identificadas)
 - KPIs en cero con meta definida
 - Hitos del proyecto
 
-**`projects/gestion-proyectos/metrics/financiero.md`** — Con:
+**`{project_path}/metrics/financiero.md`** — Con:
 - BAC registrado
 - Burn rate planificado por mes
 - Margen objetivo VortexBird
 
-**`projects/gestion-proyectos/metrics/cronograma.md`** — Con fechas base del proyecto.
+**`{project_path}/metrics/cronograma.md`** — Con fechas base del proyecto.
 
 ---
 
 ### Paso 5 — Registrar en memoria
 
-**`projects/gestion-proyectos/memory/historial.md`** — Agregar entrada:
+**`{project_path}/memory/historial.md`** — Agregar entrada:
 ```
 [FECHA] — INICIO DEL PROYECTO
 Proyecto: [nombre]
@@ -171,7 +200,7 @@ Datos registrados: [lista de archivos actualizados]
 Semáforo inicial: [RAG]
 ```
 
-**`projects/gestion-proyectos/memory/riesgo.md`** — Registrar riesgos iniciales detectados en el análisis.
+**`{project_path}/memory/riesgo.md`** — Registrar riesgos iniciales detectados en el análisis.
 
 ---
 
@@ -190,7 +219,7 @@ Al terminar el análisis de contexto, evaluar desde la perspectiva de VortexBird
 | Riesgos | ¿Hay riesgos que amenazan el margen de VortexBird? | [Lista] |
 | Cliente | ¿El cliente tiene capacidad de tomar decisiones ágil? | [Sí / En riesgo] |
 
-Si hay alertas en esta evaluación → registrar como riesgos en `projects/gestion-proyectos/risks/risk-register.md` y en `projects/gestion-proyectos/memory/riesgo.md`.
+Si hay alertas en esta evaluación → registrar como riesgos en `{project_path}/risks/risk-register.md` y en `{project_path}/memory/riesgo.md`.
 
 ---
 
@@ -210,13 +239,13 @@ ANÁLISIS DE CONTEXTO — [PROYECTO] — [FECHA]
 ✓ Presupuesto BAC: [monto]
 
 ## Archivos actualizados
-- projects/gestion-proyectos/context/proyecto-base.md ✓
-- projects/gestion-proyectos/context/stakeholders.md ✓
-- projects/gestion-proyectos/context/restricciones.md ✓
-- projects/gestion-proyectos/data/cronograma.md ✓
-- projects/gestion-proyectos/data/presupuesto.md ✓
-- projects/gestion-proyectos/metrics/dashboard.md ✓
-- projects/gestion-proyectos/memory/historial.md ✓
+- {project_path}/context/proyecto-base.md ✓
+- {project_path}/context/stakeholders.md ✓
+- {project_path}/context/restricciones.md ✓
+- {project_path}/data/cronograma.md ✓
+- {project_path}/data/presupuesto.md ✓
+- {project_path}/metrics/dashboard.md ✓
+- {project_path}/memory/historial.md ✓
 
 ## Datos pendientes de confirmar
 [Lista de campos marcados como [POR DEFINIR]]

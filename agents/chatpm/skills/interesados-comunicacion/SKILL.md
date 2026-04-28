@@ -37,7 +37,7 @@ Gestionar el compromiso de los interesados y la comunicación del proyecto confo
 
 ### Paso 1 — Leer el mapa de interesados
 
-Fuente: `projects/gestion-proyectos/context/stakeholders.md`
+Fuente: `{project_path}/context/stakeholders.md`
 
 Clasificación de interesados por cuadrante:
 
@@ -140,10 +140,10 @@ Técnicas de resolución:
 
 ### Paso 6 — Actualizar archivos
 
-- `projects/gestion-proyectos/context/stakeholders.md` — actualizar posiciones y estrategias
-- `projects/gestion-proyectos/memory/historial.md` — registrar comunicaciones clave
-- `projects/gestion-proyectos/memory/decisiones.md` — decisiones de stakeholders registradas
-- `projects/gestion-proyectos/memory/compromisos.md` — compromisos asumidos por stakeholders
+- `{project_path}/context/stakeholders.md` — actualizar posiciones y estrategias
+- `{project_path}/memory/historial.md` — registrar comunicaciones clave
+- `{project_path}/memory/decisiones.md` — decisiones de stakeholders registradas
+- `{project_path}/memory/compromisos.md` — compromisos asumidos por stakeholders
 
 ---
 

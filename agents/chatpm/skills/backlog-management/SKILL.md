@@ -39,12 +39,12 @@ Construir, priorizar y mantener el Product Backlog como el motor del delivery de
 ### Paso 1 — Leer fuentes de información
 
 ```
-projects/gestion-proyectos/data/backlog.md
-projects/gestion-proyectos/data/sprint-actual.md
-projects/gestion-proyectos/context/proyecto-base.md
-projects/gestion-proyectos/context/restricciones.md
-projects/gestion-proyectos/data/cronograma.md
-projects/gestion-proyectos/memory/compromisos.md
+{project_path}/data/backlog.md
+{project_path}/data/sprint-actual.md
+{project_path}/context/proyecto-base.md
+{project_path}/context/restricciones.md
+{project_path}/data/cronograma.md
+{project_path}/memory/compromisos.md
 ```
 
 ---
@@ -225,11 +225,11 @@ El agente debe alertar cuando:
 
 ### Paso 10 — Actualizar Archivos
 
-- `projects/gestion-proyectos/data/backlog.md` — historias actualizadas
-- `projects/gestion-proyectos/data/sprint-actual.md` — si hay cambios en el sprint en curso
-- `projects/gestion-proyectos/data/velocidad.md` — actualizar velocidad si es post-sprint
-- `projects/gestion-proyectos/metrics/delivery.md` — métricas de entrega actualizadas
-- `projects/gestion-proyectos/memory/historial.md` — si se hizo un refinamiento o planning
+- `{project_path}/data/backlog.md` — historias actualizadas
+- `{project_path}/data/sprint-actual.md` — si hay cambios en el sprint en curso
+- `{project_path}/data/velocidad.md` — actualizar velocidad si es post-sprint
+- `{project_path}/metrics/delivery.md` — métricas de entrega actualizadas
+- `{project_path}/memory/historial.md` — si se hizo un refinamiento o planning
 
 ---
 

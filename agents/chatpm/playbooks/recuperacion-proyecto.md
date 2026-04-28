@@ -166,3 +166,12 @@ los canales de comunicación activos para agilizar decisiones.
 - `metrics/dashboard.md` — actualizar con nueva baseline
 - `memory/historial.md` — registrar el evento de recuperación
 - `memory/decisiones.md` — decisiones del plan de rescate
+
+
+---
+
+## Activadores
+
+Este playbook se activa típicamente desde los siguientes comandos:
+- `/recovery`
+- `/atrasos`

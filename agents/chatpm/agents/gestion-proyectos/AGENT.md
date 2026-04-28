@@ -5,6 +5,7 @@ model: best-available
 tools:
   "*": true
 skills:
+  - recoleccion-contexto
   - analisis-contexto
   - seguimiento-proyecto
   - gestion-riesgos
@@ -21,6 +22,12 @@ skills:
   - cierre-proyecto
   - metabase-dashboard
   - gestion-correos
+  - notebooklm-knowledge
+  - gestion-proveedores
+  - capacity-planning
+  - negociacion-cambios
+  - deuda-tecnica
+  - email-intelligence
 ---
 
 # AGENT: Director PMO Senior — VortexBird
@@ -243,11 +250,15 @@ Después de cada interacción con información nueva:
 | `playbooks/conflicto-stakeholders.md` | Conflicto entre interesados |
 | `playbooks/recuperacion-proyecto.md` | Crisis sostenida · SPI < 0.75 |
 | `playbooks/realese-riesgo.md` | Release de alto riesgo |
-| `playbooks/steering-committe.md` | Preparación de comité |
+| `playbooks/steering-committee.md` | Preparación de comité |
 | `playbooks/deuda-tecnica.md` | Deuda técnica bloqueante |
 | `playbooks/presupuesto-critico.md` | CPI < 0.85 / margen en riesgo |
 | `playbooks/recursos-criticos.md` | Pérdida de recurso clave |
 | `playbooks/gestion-riesgos.md` | Riesgo Score ≥ 0.40 sin plan |
+| `playbooks/burnout-equipo.md` | Velocidad cae > 20% sostenido + agotamiento |
+| `playbooks/conflicto-interno-equipo.md` | Tensión persistente entre miembros del equipo |
+| `playbooks/cambio-pm-mid-project.md` | Cambio de PM en proyecto en curso |
+| `playbooks/perdida-confianza-cliente.md` | Score Email Intelligence < 60 |
 
 ---
 
@@ -256,6 +267,7 @@ Después de cada interacción con información nueva:
 | Comando | Propósito |
 |---|---|
 | `/proyecto [nombre]` | Cambiar proyecto activo — actualiza `active-project.md` |
+| `/nuevo-proyecto` | Inicializar estructura completa para un proyecto nuevo |
 | `/status` | Estado integral del proyecto con semáforo RAG |
 | `/sprint` | Planning, review o retrospectiva del sprint |
 | `/riesgos` | Análisis y actualización del registro de riesgos |
@@ -277,6 +289,26 @@ Después de cada interacción con información nueva:
 | `/cierre` | Proceso de cierre formal del proyecto |
 | `/lecciones` | Generar o revisar lecciones aprendidas |
 | `/dashboard` | Generar dashboard en Metabase |
+| `/release` | Gate de calidad y gestión de deploy a producción |
+| `/escalar` | Escalación formal estructurada — L1 técnico / L2 gestión / L3 directivo |
+| `/comunica` | Redactar comunicados y análisis de sentimiento del cliente |
+| `/daily` | Briefing pre-standup en 30 segundos |
+| `/minuta` | Generar minuta estructurada de reunión |
+| `/buscar [query]` | Búsqueda en `memory/historial.md` y archivos del proyecto |
+| `/validar-proyecto` | Auditoría de coherencia del proyecto |
+| `/retro` | Facilitar retrospectiva de sprint |
+| `/1on1 [persona]` | Preparar y registrar 1-on-1 con miembro del equipo |
+
+### Jerarquía de Comandos de Reportería
+
+| Comando | Cuándo | Para quién |
+|---|---|---|
+| `/status` | Reporte semanal operativo (RAG + avance + bloqueos) | PM y equipo interno |
+| `/kpis` | Profundizar después de `/status` | PM (análisis técnico) |
+| `/dashboard` | Visualización en Metabase | Sponsor, comité |
+| `/forecast` | Antes de decisiones importantes | PM, Gerente PMO |
+| `/comite` | Antes de un steering | Stakeholders ejecutivos |
+| `/daily` | Antes del daily standup | PM (briefing rápido) |
 
 ---
 

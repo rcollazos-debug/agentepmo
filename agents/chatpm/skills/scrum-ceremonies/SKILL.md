@@ -155,7 +155,7 @@ En lugar de las 3 preguntas individuales, revisar el board de izquierda a derech
 
 ### Registro post-Daily (memoria del agente)
 
-El agente puede registrar en `projects/gestion-proyectos/memory/historial.md`:
+El agente puede registrar en `{project_path}/memory/historial.md`:
 ```
 [FECHA] — Daily Standup
 Bloqueos activos: [lista]
@@ -316,9 +316,9 @@ ESTADO GENERAL DEL EQUIPO: [🟢 Motivado / 🟡 Con fricción / 🔴 En tensió
 
 ## Actualizar Archivos post-Ceremonias
 
-- `projects/gestion-proyectos/data/sprint-actual.md` — resultado del sprint
-- `projects/gestion-proyectos/data/velocidad.md` — velocidad actualizada
-- `projects/gestion-proyectos/data/backlog.md` — backlog ajustado post-Review
-- `projects/gestion-proyectos/metrics/delivery.md` — métricas de entrega
-- `projects/gestion-proyectos/memory/historial.md` — cierre de sprint registrado
-- `projects/gestion-proyectos/memory/compromisos.md` — compromisos de mejora de la retro
+- `{project_path}/data/sprint-actual.md` — resultado del sprint
+- `{project_path}/data/velocidad.md` — velocidad actualizada
+- `{project_path}/data/backlog.md` — backlog ajustado post-Review
+- `{project_path}/metrics/delivery.md` — métricas de entrega
+- `{project_path}/memory/historial.md` — cierre de sprint registrado
+- `{project_path}/memory/compromisos.md` — compromisos de mejora de la retro

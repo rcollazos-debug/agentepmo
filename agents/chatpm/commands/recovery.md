@@ -174,3 +174,11 @@ Estructura del mensaje:
 - `memory/compromisos.md` — compromisos del plan de recuperación
 - `data/cronograma.md` — nueva baseline
 - `metrics/dashboard.md` — actualizar semáforo y estado
+
+
+---
+
+## Playbooks asociados
+
+Este comando puede activar los siguientes playbooks según el escenario detectado:
+- `recuperacion-proyecto`

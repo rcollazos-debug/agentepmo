@@ -38,10 +38,10 @@ Garantizar que el producto de software entregado cumpla con los estándares de c
 ### Paso 1 — Leer estado de calidad
 
 Fuentes en orden:
-1. `projects/gestion-proyectos/metrics/calidad.md` — KPIs de calidad actuales
-2. `projects/gestion-proyectos/data/backlog.md` — historias con defectos o devueltas por QA
-3. `projects/gestion-proyectos/data/sprint-actual.md` — estado del sprint actual
-4. `projects/gestion-proyectos/memory/historial.md` — tendencia de calidad reciente
+1. `{project_path}/metrics/calidad.md` — KPIs de calidad actuales
+2. `{project_path}/data/backlog.md` — historias con defectos o devueltas por QA
+3. `{project_path}/data/sprint-actual.md` — estado del sprint actual
+4. `{project_path}/memory/historial.md` — tendencia de calidad reciente
 
 ---
 
@@ -182,10 +182,10 @@ Si el semáforo de calidad es AMARILLO o ROJO:
 
 ### Paso 9 — Actualizar Archivos
 
-- `projects/gestion-proyectos/metrics/calidad.md` — KPIs actualizados
-- `projects/gestion-proyectos/memory/historial.md` — eventos de calidad registrados
-- `projects/gestion-proyectos/memory/riesgo.md` — si se detectan riesgos de calidad nuevos
-- `projects/gestion-proyectos/metrics/dashboard.md` — actualizar semáforo de calidad
+- `{project_path}/metrics/calidad.md` — KPIs actualizados
+- `{project_path}/memory/historial.md` — eventos de calidad registrados
+- `{project_path}/memory/riesgo.md` — si se detectan riesgos de calidad nuevos
+- `{project_path}/metrics/dashboard.md` — actualizar semáforo de calidad
 
 ---
 

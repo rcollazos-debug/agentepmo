@@ -61,3 +61,11 @@ Gate de calidad con:
 - Veredicto del gate de release (✅ Aprobado / 🚫 Bloqueado / ⚠️ Condicionado)
 - Acciones de mejora con responsable y fecha
 - Semáforo de calidad
+
+
+---
+
+## Playbooks asociados
+
+Este comando puede activar los siguientes playbooks según el escenario detectado:
+- `qa-colapsado`

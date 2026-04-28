@@ -151,10 +151,10 @@ En el archivo `AGENT.md` del agente gestion-proyectos:
 
 **Ejecución:**
 1. Leer contexto/proyecto-base.md
-2. Leer projects/gestion-proyectos/context/stakeholders.md
+2. Leer {project_path}/context/stakeholders.md
 3. Compilar datos en estructura JSON
 4. Ejecutar: python generator.py --project-data data.json
-5. Actualizar projects/gestion-proyectos/memory/historial.md
+5. Actualizar {project_path}/memory/historial.md
 ```
 
 ### Comando disponible
@@ -267,13 +267,13 @@ pip install python-docx
 directorio ChatPM (agents/chatpm/):
 ├── agents/gestion-proyectos/
 │   ├── AGENT.md (contiene protocolos)
-│   ├── projects/gestion-proyectos/context/
+│   ├── {project_path}/context/
 │   │   ├── proyecto-base.md
 │   │   └── stakeholders.md
-│   ├── projects/gestion-proyectos/memory/
+│   ├── {project_path}/memory/
 │   │   ├── historial.md
 │   │   └── decisiones.md
-│   └── projects/gestion-proyectos/metrics/
+│   └── {project_path}/metrics/
 │       └── dashboard.md
 ├── skills/
 │   └── presentacion-kickoff/

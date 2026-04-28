@@ -149,3 +149,11 @@ Mantener actualizado en `data/cambios.md`:
 - El cliente pide en reunión algo que no estaba en el contrato
 - El backlog crece sin que la fecha cambie
 - Sprints sistemáticamente incompletos sin causa clara de capacidad
+
+
+---
+
+## Playbooks asociados
+
+Este comando puede activar los siguientes playbooks según el escenario detectado:
+- `cambio-alcance`

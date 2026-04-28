@@ -51,7 +51,7 @@ Leer la solicitud del usuario e identificar el tipo. Si no es explícito, usar *
 
 ### 2.1 Datos base (leer siempre)
 
-Leer `projects/gestion-proyectos/context/proyecto-base.md` y extraer:
+Leer `{project_path}/context/proyecto-base.md` y extraer:
 - `[PROYECTO]` = nombre del proyecto
 - `[CLIENTE]` = nombre del cliente
 - `[PM]` = nombre del project manager
@@ -67,14 +67,14 @@ Leer `projects/gestion-proyectos/context/proyecto-base.md` y extraer:
 
 ---
 
-**`projects/gestion-proyectos/metrics/dashboard.md`** → EJECUTIVO, COMPLETO
+**`{project_path}/metrics/dashboard.md`** → EJECUTIVO, COMPLETO
 - `[SEMAFORO_RAW]` = "VERDE", "AMARILLO" o "ROJO" (sin emoji)
 - `[AVANCE_PCT]` = número del % de avance (0 si no hay)
 - `[SIGUIENTE_HITO]` = nombre del próximo hito no completado
 - `[FECHA_HITO]` = fecha del próximo hito (formato dd-mmm-yyyy)
 - `[DIAS_RESTANTES]` = días hasta fecha fin (calcular si no está explícito)
 
-**`projects/gestion-proyectos/metrics/financiero.md`** → FINANCIERO, EJECUTIVO, COMPLETO
+**`{project_path}/metrics/financiero.md`** → FINANCIERO, EJECUTIVO, COMPLETO
 - `[EV]` = número (0 si dice "$0" o "Sin trabajo completado")
 - `[AC]` = número (0 si dice "$0")
 - `[PV]` = número (0 si dice "$0")
@@ -84,7 +84,7 @@ Leer `projects/gestion-proyectos/context/proyecto-base.md` y extraer:
 - `[RESERVA_CONTINGENCIA]` = número
 - `[BURN_RATE_MES]` = tabla mes/planificado/real (extraer como texto resumido)
 
-**`projects/gestion-proyectos/metrics/cronograma.md`** → CRONOGRAMA, EJECUTIVO, COMPLETO
+**`{project_path}/metrics/cronograma.md`** → CRONOGRAMA, EJECUTIVO, COMPLETO
 - `[SPI]` = número decimal. Si "N/A" → `null`
 - `[SV]` = número (0 si "$0")
 - `[PCT_TIEMPO]` = % del tiempo transcurrido (número)
@@ -92,29 +92,29 @@ Leer `projects/gestion-proyectos/context/proyecto-base.md` y extraer:
 - `[HITOS_COMPLETADOS]` = conteo de hitos con Estado = COMPLETADO
 - `[HITOS_TOTAL]` = total de hitos en la tabla
 
-**`projects/gestion-proyectos/metrics/delivery.md`** → SPRINT, EJECUTIVO (si fase=Ejecución), COMPLETO
+**`{project_path}/metrics/delivery.md`** → SPRINT, EJECUTIVO (si fase=Ejecución), COMPLETO
 - `[SP_ENTREGADOS]` = story points entregados acumulado (0 si no hay)
 - `[VELOCIDAD_PROMEDIO]` = SP por sprint promedio. `null` si no hay
 - `[SPRINT_NUM]` = número de sprint actual. `null` si no hay
 - `[HISTORIAS_DONE]` = historias completadas acumuladas (0 si no hay)
 - `[PCT_BACKLOG]` = % del backlog completado (0 si no hay)
 
-**`projects/gestion-proyectos/metrics/calidad.md`** → CALIDAD, EJECUTIVO (si hay datos), COMPLETO
+**`{project_path}/metrics/calidad.md`** → CALIDAD, EJECUTIVO (si hay datos), COMPLETO
 - `[DEFECTOS_CRITICOS]` = número (0 si no hay)
 - `[DEFECTOS_ALTOS]` = número (0 si no hay)
 - `[TASA_DEFECTOS]` = bugs/SP. `null` si no hay
 - `[COBERTURA_PRUEBAS]` = % cobertura. `null` si no hay
 
-**`projects/gestion-proyectos/metrics/capacidad.md`** → EQUIPO, COMPLETO
+**`{project_path}/metrics/capacidad.md`** → EQUIPO, COMPLETO
 - `[UTILIZACION_PROMEDIO]` = % utilización promedio. `null` si no hay
 - `[VELOCIDAD_PROMEDIO_CAP]` = SP/sprint promedio de capacidad. `null` si no hay
 
-**`projects/gestion-proyectos/memory/riesgo.md`** → RIESGOS, EJECUTIVO, COMPLETO
+**`{project_path}/memory/riesgo.md`** → RIESGOS, EJECUTIVO, COMPLETO
 - `[RIESGOS_CRITICOS]` = conteo de riesgos con Score >= 0.40 (0 si no hay)
 - `[RIESGOS_ALTOS]` = conteo Score 0.20-0.39 (0 si no hay)
 - `[RIESGOS_TOTAL]` = total activos
 
-**`projects/gestion-proyectos/memory/compromisos.md`** → COMPROMISOS, EJECUTIVO, COMPLETO
+**`{project_path}/memory/compromisos.md`** → COMPROMISOS, EJECUTIVO, COMPLETO
 - `[COMPROMISOS_VENCIDOS]` = conteo Estado = "Vencido" (0 si no hay)
 - `[COMPROMISOS_CURSO]` = conteo Estado = "En curso" o "Pendiente"
 
@@ -403,7 +403,7 @@ Si los componentes individuales no están disponibles, usar query simplificada: 
   "visualization_settings": {}
 }
 ```
-Construir el UNION ALL con tantas filas como fases existan en `projects/gestion-proyectos/metrics/cronograma.md`. Estado: "🔄 En curso" / "⏳ Pendiente" / "✅ Completada".
+Construir el UNION ALL con tantas filas como fases existan en `{project_path}/metrics/cronograma.md`. Estado: "🔄 En curso" / "⏳ Pendiente" / "✅ Completada".
 
 ---
 
@@ -496,7 +496,7 @@ Construir el UNION ALL con tantas filas como fases existan en `projects/gestion-
   "visualization_settings": {}
 }
 ```
-Construir con las filas de la tabla Burn Rate de `projects/gestion-proyectos/metrics/financiero.md`. Si Real es "—", usar `'Pendiente'`.
+Construir con las filas de la tabla Burn Rate de `{project_path}/metrics/financiero.md`. Si Real es "—", usar `'Pendiente'`.
 
 ---
 

@@ -94,3 +94,12 @@ BLOQUEOS MEDIOS Y BAJOS
 ESCALACIONES REQUERIDAS
 [lista con destinatario y mensaje recomendado]
 ```
+
+
+---
+
+## Playbooks asociados
+
+Este comando puede activar los siguientes playbooks según el escenario detectado:
+- `cliente-ausente`
+- `proveedor-incumplido`

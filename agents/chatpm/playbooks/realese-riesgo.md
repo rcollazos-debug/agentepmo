@@ -138,3 +138,11 @@ Para consultas: [canal de soporte]
 - `memory/historial.md` — evento registrado
 - `metrics/delivery.md` — actualizar métricas de delivery
 - `risks/technical-risks.md` — cerrar riesgos resueltos, abrir nuevos si aplica
+
+
+---
+
+## Activadores
+
+Este playbook se activa típicamente desde los siguientes comandos:
+- `/release`

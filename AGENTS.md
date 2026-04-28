@@ -22,9 +22,12 @@ Este repositorio contiene el sistema de agente inteligente de gestión de proyec
 
 > El directorio de trabajo de ChatPM es `agents/chatpm/`.
 
+> **Convenciones del sistema:** ver `agents/chatpm/CONVENCIONES.md` para reglas de paths dinámicos (`{project_path}`), distinción `data/` vs `metrics/`, formato de `memory/historial.md` y manejo de datos faltantes.
+
 ```
 agents/
 └── chatpm/                           ← Directorio de trabajo de ChatPM
+    ├── CONVENCIONES.md               ← Reglas de estructura, paths y escritura
     ├── active-project.md             ← Selector de proyecto activo (project_id, project_path)
     ├── agents/
     │   └── gestion-proyectos/
@@ -103,11 +106,15 @@ agents/
 | `qa-colapsado.md` | QA en colapso — cola de defectos insostenible |
 | `conflicto-stakeholders.md` | Conflicto entre interesados del proyecto |
 | `realese-riesgo.md` | Release de alto riesgo a producción |
-| `steering-committe.md` | Preparación de comité directivo |
+| `steering-committee.md` | Preparación de comité directivo |
 | `deuda-tecnica.md` | Deuda técnica bloqueante que reduce velocidad |
 | `presupuesto-critico.md` | CPI < 0.85 — margen VortexBird en riesgo |
 | `recursos-criticos.md` | Pérdida o crisis de recurso clave del equipo |
 | `gestion-riesgos.md` | Riesgo Score ≥ 0.40 sin plan de respuesta |
+| `burnout-equipo.md` | Velocidad cae > 20% sostenido + señales de agotamiento |
+| `conflicto-interno-equipo.md` | Tensión persistente entre 2+ miembros del equipo |
+| `cambio-pm-mid-project.md` | Cambio de PM en proyecto en curso |
+| `perdida-confianza-cliente.md` | Score Email Intelligence < 60 / señales de pérdida de confianza |
 
 ### `/risks/` — Gestión de Riesgos
 | Archivo | Propósito |
@@ -141,6 +148,12 @@ agents/
 | `cronograma-cliente.md` | Plantilla de cronograma para el cliente |
 | `presentacion-kickoff.md` | Plantilla de presentación de Kick-off |
 | `generar_kickoff_pptx.py` | Script Python para generar presentación PPTX |
+| `post-incident-review.md` | Plantilla de Post-Incident Review con análisis 5-Whys |
+| `stakeholder-concerns.md` | Plantilla de gestión de preocupaciones formales de stakeholders |
+| `minuta-reunion.md` | Plantilla estructurada de minuta — asistentes, decisiones, compromisos |
+| `retrospectiva.md` | Plantilla de facilitación de retrospectiva con análisis de patrones |
+| `business-case.md` | Plantilla de business case formal — opciones, ROI, recomendación |
+| `1on1-notes.md` | Plantilla confidencial de notas de 1-on-1 con miembros del equipo |
 
 ### `/data/` — Datos del Proyecto
 | Archivo | Propósito |
@@ -184,11 +197,33 @@ agents/
 | `/cierre` | Proceso de cierre formal del proyecto |
 | `/lecciones` | Generar o revisar lecciones aprendidas |
 | `/proyecto [nombre]` | Cambiar el proyecto activo en `active-project.md` |
+| `/nuevo-proyecto` | Inicializar estructura completa para un proyecto nuevo |
+| `/release` | Gate de calidad y gestión de deploy a producción |
+| `/escalar` | Escalación formal estructurada — L1 técnico / L2 gestión / L3 directivo |
+| `/comunica` | Redactar comunicados, análisis de sentimiento del cliente y plan de comunicación |
+| `/daily` | Briefing pre-standup en 30 segundos: estado, bloqueos, hitos a 48h |
+| `/minuta` | Generar minuta estructurada de reunión con decisiones y compromisos |
+| `/buscar [query]` | Búsqueda en `memory/historial.md` y archivos del proyecto |
+| `/validar-proyecto` | Auditoría de coherencia: archivos, datos, compromisos y métricas |
+| `/retro` | Facilitar retrospectiva de sprint con análisis de patrones |
+| `/1on1 [persona]` | Preparar y registrar 1-on-1 con miembro del equipo |
+
+#### Jerarquía de Comandos de Reportería
+
+| Comando | Cuándo | Para quién |
+|---|---|---|
+| `/status` | Reporte semanal operativo (RAG + avance + bloqueos) | PM y equipo interno |
+| `/kpis` | Profundizar después de `/status` | PM (análisis técnico) |
+| `/dashboard` | Visualización en Metabase | Sponsor, comité |
+| `/forecast` | Antes de decisiones importantes | PM, Gerente PMO |
+| `/comite` | Antes de un steering committee | Stakeholders ejecutivos |
+| `/daily` | Antes del daily standup | PM (briefing en 30 segundos) |
 
 ### `/skills/` — Skills del Agente
 | Skill | Propósito |
 |---|---|
-| `analisis-contexto` | Recopilar y estructurar el contexto completo del proyecto |
+| `recoleccion-contexto` | Cosecha automática de contexto desde Gmail, Calendar, Metabase y NotebookLM. Incluye 3 módulos predictivos (tendencias, calendar gap, circuit breaker) |
+| `analisis-contexto` | Orquestador de la fase inicial — entrevista estructurada al PM y delegación a workers |
 | `seguimiento-proyecto` | Monitoreo integral con EVM y semáforo RAG |
 | `gestion-riesgos` | Identificación, análisis y gestión de riesgos |
 | `cronograma-control` | Control del cronograma, ruta crítica, opciones de recuperación |
@@ -202,6 +237,14 @@ agents/
 | `scrum-ceremonies` | Facilitar Planning, Daily, Review y Retrospectiva |
 | `kanban-flow` | Gestión de flujo Kanban, WIP, Lead Time, Throughput |
 | `cierre-proyecto` | Cierre formal, actas de entrega, lecciones aprendidas |
+| `gestion-correos` | Operación manual sobre emails: búsqueda, etiquetado, persistencia |
+| `notebooklm-knowledge` | Worker de documentos estáticos — extrae compromisos, fechas, condiciones contractuales de NotebookLM |
+| `metabase-dashboard` | Construcción de dashboards en Metabase con tarjetas adaptadas al proyecto |
+| `gestion-proveedores` | Gestión de vendors externos: SLA, evaluación, escalación, plan de contingencia |
+| `capacity-planning` | Cálculo de capacidad real del equipo con reductores y vacaciones |
+| `negociacion-cambios` | Negociación PRE-decisión de un CR con análisis y opciones |
+| `deuda-tecnica` | Inventario, priorización y estrategia de pago de deuda técnica |
+| `email-intelligence` | Detección de señales débiles en emails — bloqueadores silenciosos, cambios de tono, scope creep |
 
 ---
 

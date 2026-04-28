@@ -150,3 +150,11 @@ LECCIONES APRENDIDAS
 - `memory/historial.md` — incidente registrado
 - `memory/decisiones.md` — decisiones tomadas durante la crisis
 - `risks/risk-register.md` — nuevos riesgos identificados post-mortem
+
+
+---
+
+## Activadores
+
+Este playbook se activa típicamente desde los siguientes comandos:
+- `/release`

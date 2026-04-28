@@ -7,7 +7,7 @@ description: Consulta, clasifica y guarda correos electrónicos relacionados con
 
 ## Propósito
 
-Conectar la bandeja de Gmail del PM con la memoria del proyecto. El skill permite buscar correos relevantes, presentarlos al usuario para que decida cuáles pertenecen al proyecto, etiquetar los seleccionados en Gmail y guardar un resumen estructurado en `projects/gestion-proyectos/memory/emails.md` para que el agente los tenga en cuenta en seguimientos, informes y decisiones futuras.
+Conectar la bandeja de Gmail del PM con la memoria del proyecto. El skill permite buscar correos relevantes, presentarlos al usuario para que decida cuáles pertenecen al proyecto, etiquetar los seleccionados en Gmail y guardar un resumen estructurado en `{project_path}/memory/emails.md` para que el agente los tenga en cuenta en seguimientos, informes y decisiones futuras.
 
 ---
 
@@ -34,7 +34,7 @@ Activar cuando el usuario quiere VER correos sin necesariamente guardarlos.
 
 ### Paso 1 — Leer contexto del proyecto
 
-Leer `projects/gestion-proyectos/context/proyecto-base.md` para obtener:
+Leer `{project_path}/context/proyecto-base.md` para obtener:
 - `[PROYECTO]` = nombre del proyecto
 - `[CLIENTE]` = nombre del cliente / empresa
 - `[EMAIL_CLIENTE]` = email del interlocutor principal si está registrado
@@ -167,9 +167,9 @@ messageId: [ID]
 addLabelIds: [[LABEL_ID]]
 ```
 
-### Paso 4 — Guardar en `projects/gestion-proyectos/memory/emails.md`
+### Paso 4 — Guardar en `{project_path}/memory/emails.md`
 
-Leer el archivo `projects/gestion-proyectos/memory/emails.md` actual. Si no existe, crearlo con la estructura base (ver plantilla abajo).
+Leer el archivo `{project_path}/memory/emails.md` actual. Si no existe, crearlo con la estructura base (ver plantilla abajo).
 
 Agregar una entrada por cada correo guardado en la sección correspondiente a su categoría.
 
@@ -190,7 +190,7 @@ Correos registrados:
 - [ASUNTO 2] — [CATEGORIA 2] — [ACCION 2]
 
 📂 Ver en Gmail: buscar label:PMO/[PROYECTO]
-📝 Registro: projects/gestion-proyectos/memory/emails.md
+📝 Registro: {project_path}/memory/emails.md
 ```
 
 ---
@@ -199,7 +199,7 @@ Correos registrados:
 
 Activar cuando el usuario quiere consultar correos YA guardados sin ir a Gmail.
 
-### Paso 1 — Leer `projects/gestion-proyectos/memory/emails.md`
+### Paso 1 — Leer `{project_path}/memory/emails.md`
 
 ### Paso 2 — Filtrar por lo que pide el usuario
 
@@ -222,10 +222,10 @@ Activar cuando un correo confirma un compromiso, aprueba un entregable, o genera
 ### Paso 1 — Identificar qué genera el correo
 
 Preguntar al usuario o inferir del contenido:
-- ¿Es una aprobación de entregable? → registrar en `projects/gestion-proyectos/memory/compromisos.md`
-- ¿Es un cambio de alcance? → crear entrada en `projects/gestion-proyectos/data/cambios.md` o alertar skill `control-cambios`
+- ¿Es una aprobación de entregable? → registrar en `{project_path}/memory/compromisos.md`
+- ¿Es un cambio de alcance? → crear entrada en `{project_path}/data/cambios.md` o alertar skill `control-cambios`
 - ¿Es un riesgo nuevo? → activar skill `gestion-riesgos`
-- ¿Es un compromiso del cliente? → agregar a `projects/gestion-proyectos/memory/compromisos.md`
+- ¿Es un compromiso del cliente? → agregar a `{project_path}/memory/compromisos.md`
 
 ### Paso 2 — Actualizar el archivo correspondiente
 
@@ -234,7 +234,7 @@ Agregar referencia cruzada en el archivo destino:
 [Referencia al correo: messageId parcial, fecha, asunto]
 ```
 
-### Paso 3 — Actualizar `projects/gestion-proyectos/memory/emails.md`
+### Paso 3 — Actualizar `{project_path}/memory/emails.md`
 
 Marcar el correo como "Vinculado a [archivo]" en la columna Acción.
 
@@ -244,7 +244,7 @@ Marcar el correo como "Vinculado a [archivo]" en la columna Acción.
 
 1. **Nunca leer correos sin confirmación.** Siempre mostrar la lista primero y esperar que el usuario seleccione.
 2. **No guardar correos automáticamente.** El usuario siempre decide cuáles son relevantes para el proyecto.
-3. **Respetar la privacidad.** No incluir en `projects/gestion-proyectos/memory/emails.md` el cuerpo completo — solo el resumen de 2-3 líneas.
+3. **Respetar la privacidad.** No incluir en `{project_path}/memory/emails.md` el cuerpo completo — solo el resumen de 2-3 líneas.
 4. **Etiqueta consistente.** Siempre usar el formato `PMO/[PROYECTO]` para todas las etiquetas del proyecto.
 5. **Vincular con el contexto.** Cuando un correo contiene una decisión importante, proponer vincularlo al archivo correspondiente del proyecto (compromisos, cambios, riesgos).
 6. **Si Gmail no está autenticado**, responder: *"El MCP de Gmail no está activado aún. Sigue las instrucciones de configuración OAuth para habilitarlo."*

@@ -122,3 +122,12 @@ El impacto en el cronograma es: [X días].
 - `memory/historial.md` — evento registrado
 - `memory/riesgo.md` — si la deuda es un riesgo activo
 - `metrics/calidad.md` — métricas de deuda técnica actualizadas
+
+
+---
+
+## Activadores
+
+Este playbook se activa típicamente desde los siguientes comandos:
+- `/retro`
+- `/sprint`

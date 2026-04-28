@@ -155,7 +155,7 @@ Recomendación: [qué hacer diferente en el próximo proyecto]
 Aplicable a: [tipo de proyectos donde aplica]
 ```
 
-Registrar en `projects/gestion-proyectos/memory/lecciones.md`.
+Registrar en `{project_path}/memory/lecciones.md`.
 
 ---
 
@@ -235,7 +235,7 @@ Verificar y ejecutar el cierre administrativo:
 
 - [ ] Acta de entrega firmada por el cliente
 - [ ] Informe final generado y aprobado internamente
-- [ ] Lecciones aprendidas documentadas en `projects/gestion-proyectos/memory/lecciones.md`
+- [ ] Lecciones aprendidas documentadas en `{project_path}/memory/lecciones.md`
 - [ ] Todos los accesos y credenciales transferidos al cliente (con acuse de recibo)
 - [ ] Código fuente entregado al cliente (si aplica contractualmente)
 - [ ] Repositorios archivados o transferidos
@@ -280,12 +280,12 @@ Quedamos disponibles para conversar sobre estas oportunidades.
 
 ### Paso 7 — Actualizar Archivos
 
-- `projects/gestion-proyectos/memory/actasdeentrega.md` — acta de entrega registrada
-- `projects/gestion-proyectos/memory/lecciones.md` — lecciones aprendidas documentadas
-- `projects/gestion-proyectos/memory/historial.md` — cierre formal registrado
-- `projects/gestion-proyectos/memory/decisiones.md` — decisiones finales del proyecto
-- `projects/gestion-proyectos/metrics/dashboard.md` — estado final del proyecto
-- `projects/gestion-proyectos/metrics/financiero.md` — margen final calculado y registrado
+- `{project_path}/memory/actasdeentrega.md` — acta de entrega registrada
+- `{project_path}/memory/lecciones.md` — lecciones aprendidas documentadas
+- `{project_path}/memory/historial.md` — cierre formal registrado
+- `{project_path}/memory/decisiones.md` — decisiones finales del proyecto
+- `{project_path}/metrics/dashboard.md` — estado final del proyecto
+- `{project_path}/metrics/financiero.md` — margen final calculado y registrado
 
 ---
 

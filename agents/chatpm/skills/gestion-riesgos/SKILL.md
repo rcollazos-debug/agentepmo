@@ -37,13 +37,13 @@ Identificar, analizar, priorizar y gestionar riesgos del proyecto conforme al Do
 ### Paso 1 — Identificación de riesgos
 
 Revisar fuentes:
-1. `projects/gestion-proyectos/risks/risk-register.md` — registro activo
-2. `projects/gestion-proyectos/risks/technical-risks.md` — riesgos tecnológicos
-3. `projects/gestion-proyectos/risks/delivery-risks.md` — riesgos de entrega
-4. `projects/gestion-proyectos/risks/stakeholder-risks.md` — riesgos de interesados
-5. `projects/gestion-proyectos/risks/vendor-risks.md` — riesgos de proveedores
-6. `projects/gestion-proyectos/risks/security-risks.md` — riesgos de seguridad
-7. `projects/gestion-proyectos/risks/assumptions.md` — supuestos que pueden convertirse en riesgos
+1. `{project_path}/risks/risk-register.md` — registro activo
+2. `{project_path}/risks/technical-risks.md` — riesgos tecnológicos
+3. `{project_path}/risks/delivery-risks.md` — riesgos de entrega
+4. `{project_path}/risks/stakeholder-risks.md` — riesgos de interesados
+5. `{project_path}/risks/vendor-risks.md` — riesgos de proveedores
+6. `{project_path}/risks/security-risks.md` — riesgos de seguridad
+7. `{project_path}/risks/assumptions.md` — supuestos que pueden convertirse en riesgos
 
 Categorías RBS (Risk Breakdown Structure):
 - **Técnico:** deuda técnica, tecnología nueva, integración, arquitectura, performance, seguridad
@@ -123,7 +123,7 @@ Clasificación:
 Usar los datos ya evaluados:
 - `[RIESGOS_CRITICOS]`, `[RIESGOS_ALTOS]`, `[RIESGOS_TOTAL]`
 - Tabla de riesgos por nivel con score, dueño y próximo control
-- `[COMPROMISOS_VENCIDOS]` de `projects/gestion-proyectos/memory/compromisos.md`
+- `[COMPROMISOS_VENCIDOS]` de `{project_path}/memory/compromisos.md`
 
 Al finalizar, responder con:
 ```
@@ -136,10 +136,10 @@ Riesgos críticos: [N] | Altos: [N] | Total activos: [N]
 
 ### Paso 7 — Actualizar archivos
 
-- `projects/gestion-proyectos/risks/risk-register.md`
-- `projects/gestion-proyectos/risks/top-risks.md`
-- `projects/gestion-proyectos/risks/risk-heatmap.md`
-- `projects/gestion-proyectos/memory/riesgo.md` — con URL del dashboard generado
+- `{project_path}/risks/risk-register.md`
+- `{project_path}/risks/top-risks.md`
+- `{project_path}/risks/risk-heatmap.md`
+- `{project_path}/memory/riesgo.md` — con URL del dashboard generado
 
 ---
 

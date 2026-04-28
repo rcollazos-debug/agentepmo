@@ -141,3 +141,11 @@ Post-diagnóstico, implementar:
 - `memory/historial.md` — evento crítico registrado
 - `memory/riesgo.md` — riesgo financiero crítico documentado
 - `metrics/dashboard.md` — semáforo financiero en ROJO
+
+
+---
+
+## Activadores
+
+Este playbook se activa típicamente desde los siguientes comandos:
+- `/margen`

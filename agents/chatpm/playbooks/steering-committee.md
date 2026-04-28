@@ -171,3 +171,11 @@ Proceso de convocatoria:
 2. Email formal con justificación de urgencia
 3. Propuesta de fecha en las próximas 48-72 horas
 4. Material preparado en < 24 horas
+
+
+---
+
+## Activadores
+
+Este playbook se activa típicamente desde los siguientes comandos:
+- `/comite`

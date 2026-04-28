@@ -36,13 +36,13 @@ Ejecutar el monitoreo integral del proyecto conforme al Dominio de Desempeño de
 ### Paso 1 — Leer contexto activo
 
 Leer en orden:
-1. `projects/gestion-proyectos/context/proyecto-base.md` — datos del proyecto
-2. `projects/gestion-proyectos/metrics/dashboard.md` — estado actual consolidado
-3. `projects/gestion-proyectos/metrics/cronograma.md` — variación de cronograma (SV, SPI)
-4. `projects/gestion-proyectos/metrics/financiero.md` — variación de costo (CV, CPI)
-5. `projects/gestion-proyectos/memory/compromisos.md` — compromisos vigentes
-6. `projects/gestion-proyectos/memory/riesgo.md` — riesgos activos
-7. `projects/gestion-proyectos/memory/historial.md` — últimos eventos
+1. `{project_path}/context/proyecto-base.md` — datos del proyecto
+2. `{project_path}/metrics/dashboard.md` — estado actual consolidado
+3. `{project_path}/metrics/cronograma.md` — variación de cronograma (SV, SPI)
+4. `{project_path}/metrics/financiero.md` — variación de costo (CV, CPI)
+5. `{project_path}/memory/compromisos.md` — compromisos vigentes
+6. `{project_path}/memory/riesgo.md` — riesgos activos
+7. `{project_path}/memory/historial.md` — últimos eventos
 
 ### Paso 2 — Calcular indicadores EVM (Earned Value Management)
 
@@ -136,7 +136,7 @@ Semáforo: [RAG] | SPI: [X] | CPI: [X] | Avance: [X]%
 
 ### Paso 6 — Actualizar memoria
 
-Registrar en `projects/gestion-proyectos/memory/historial.md`:
+Registrar en `{project_path}/memory/historial.md`:
 - Fecha del seguimiento
 - Semáforo emitido
 - Desviaciones detectadas

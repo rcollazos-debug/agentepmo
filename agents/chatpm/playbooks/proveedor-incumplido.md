@@ -118,3 +118,11 @@ Acciones preventivas para el futuro:
 - Definir criterios de aceptación más detallados antes del inicio
 - Incluir cláusula de notificación temprana en futuros contratos
 - Evaluar si este proveedor debe seguir en el proyecto o en proyectos futuros
+
+
+---
+
+## Activadores
+
+Este playbook se activa típicamente desde los siguientes comandos:
+- `/blockers`

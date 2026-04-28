@@ -114,3 +114,11 @@ Verificar si el riesgo es síntoma de un patrón:
 ---
 
 > **Regla VortexBird:** Un riesgo sin plan no es un riesgo gestionado. Todo riesgo Score ≥ 0.40 debe tener responsable, fecha y acción concreta antes del próximo sprint.
+
+
+---
+
+## Activadores
+
+Este playbook se activa típicamente desde los siguientes comandos:
+- `/riesgos`

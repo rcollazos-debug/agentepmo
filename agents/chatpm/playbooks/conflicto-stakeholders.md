@@ -105,3 +105,12 @@ Reglas para el PM:
 - `memory/decisiones.md` — decisión tomada para resolver el conflicto
 - `context/stakeholders.md` — actualizar posición y estrategia de cada parte
 - `risks/stakeholder-risks.md` — actualizar estado del riesgo de conflicto
+
+
+---
+
+## Activadores
+
+Este playbook se activa típicamente desde los siguientes comandos:
+- `/escalar`
+- `/comunica`

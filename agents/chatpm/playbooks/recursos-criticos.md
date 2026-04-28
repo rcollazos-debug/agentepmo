@@ -136,3 +136,12 @@ Implementar para reducir el Bus Factor:
 - `memory/riesgo.md` — riesgo de capacidad actualizado
 - `data/cronograma.md` — si hay impacto en fechas
 - `metrics/dashboard.md` — semáforo actualizado si aplica
+
+
+---
+
+## Activadores
+
+Este playbook se activa típicamente desde los siguientes comandos:
+- `/1on1`
+- `/escalar`

@@ -66,3 +66,11 @@ Reporte financiero con:
 - Fugas de margen identificadas
 - Semáforo financiero (🟢 / 🟡 / 🔴)
 - Acciones recomendadas con responsable y fecha
+
+
+---
+
+## Playbooks asociados
+
+Este comando puede activar los siguientes playbooks según el escenario detectado:
+- `presupuesto-critico`

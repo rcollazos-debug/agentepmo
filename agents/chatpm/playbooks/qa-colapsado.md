@@ -104,3 +104,11 @@ Si el colapso de QA impacta un release programado:
 - `memory/historial.md` — registrar el evento de colapso QA
 - `risks/technical-risks.md` — actualizar riesgo de calidad
 - `data/backlog.md` — repriorizar con foco en deuda de calidad
+
+
+---
+
+## Activadores
+
+Este playbook se activa típicamente desde los siguientes comandos:
+- `/calidad`

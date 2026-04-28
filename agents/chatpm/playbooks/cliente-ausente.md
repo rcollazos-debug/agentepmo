@@ -106,3 +106,12 @@ Si el patrón de ausencia es recurrente, proponer al sponsor:
 - `memory/compromisos.md` — compromisos del cliente pendientes
 - `risks/stakeholder-risks.md` — activar riesgo de cliente no comprometido
 - `context/stakeholders.md` — actualizar estrategia de engagement del cliente
+
+
+---
+
+## Activadores
+
+Este playbook se activa típicamente desde los siguientes comandos:
+- `/blockers`
+- `/escalar`
