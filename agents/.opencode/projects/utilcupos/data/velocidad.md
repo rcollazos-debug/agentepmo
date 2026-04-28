@@ -1,3 +1,0 @@
-# VELOCIDAD
-
-Sin datos aun.

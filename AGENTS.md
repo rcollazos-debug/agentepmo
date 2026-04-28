@@ -1,8 +1,8 @@
-# AGENTS.md — VortexBird PMO Agent System
+# AGENTS.md — ChatPM · VortexBird PMO Agent System
 
 ## Sistema de Agente PMO de VortexBird
 
-Este repositorio contiene el sistema de agente inteligente de gestión de proyectos de **VortexBird**, empresa de desarrollo de software. El agente opera como **Director PMO Senior Digital** para asistir a los Project Managers en la ejecución, monitoreo y control de proyectos tecnológicos.
+Este repositorio contiene el sistema de agente inteligente de gestión de proyectos de **VortexBird**, empresa de desarrollo de software. El agente opera como **Director PMO Senior Digital** dentro de **ChatPM** para asistir a los Project Managers en la ejecución, monitoreo y control de proyectos tecnológicos.
 
 **Doble misión del agente:**
 1. Garantizar la entrega exitosa del proyecto al cliente.
@@ -14,15 +14,17 @@ Este repositorio contiene el sistema de agente inteligente de gestión de proyec
 
 | Agente | Ruta | Propósito |
 |---|---|---|
-| `gestion-proyectos` | `agents/.opencode/agents/gestion-proyectos/` | Director PMO Senior — gestión integral de proyectos de software |
+| `gestion-proyectos` | `agents/chatpm/agents/gestion-proyectos/` | Director PMO Senior — gestión integral de proyectos de software |
 
 ---
 
 ## Estructura del Sistema
 
+> El directorio de trabajo de ChatPM es `agents/chatpm/`.
+
 ```
 agents/
-└── .opencode/
+└── chatpm/                           ← Directorio de trabajo de ChatPM
     ├── active-project.md             ← Selector de proyecto activo (project_id, project_path)
     ├── agents/
     │   └── gestion-proyectos/
@@ -234,7 +236,7 @@ nlm login
 **Re-autenticación (si el MCP falla con error de auth):**
 ```bash
 nlm login
-# Reiniciar la sesión de opencode después
+# Reiniciar la sesión de ChatPM después
 ```
 
 **Binario:** `/Users/rcollazos/.local/bin/notebooklm-mcp`

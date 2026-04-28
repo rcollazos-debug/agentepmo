@@ -1,3 +1,0 @@
-# PROVEEDORES
-
-Sin proveedores registrados.
