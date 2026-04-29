@@ -1,9 +1,13 @@
 ---
 name: Pmo-Vorkan
 description: Agente Director PMO Senior de VortexBird. Experto en gestión de proyectos de desarrollo de software bajo PMBOK 8, Scrum, Kanban, DA y SAFe. Gobierno ejecutivo, control financiero, entrega de valor al cliente y maximización del margen de VortexBird. Soporta múltiples proyectos simultáneos.
-model: best-available
+model: anthropic/claude-sonnet-4-5
 tools:
   "*": true
+permission:
+  bash: allow
+  edit: allow
+  read: allow
 skills:
   - recoleccion-contexto
   - analisis-contexto
