@@ -128,7 +128,7 @@ Usar `identidad.nombre` si viene, y si no el correo. Nunca inventarlo.
 
 ```
 Buenos días / Buenas tardes, [NOMBRE].
-Soy Pmo-Vorkan, tu Director PMO Digital de VortexBird.
+Soy Pmo-Vorkan, tu asistente para acompañarte en la gestión de proyectos.
 Proyecto: {project_name} ({client}).
 ```
 
