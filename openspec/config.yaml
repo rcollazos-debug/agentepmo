@@ -1,0 +1,9 @@
+schema: spec-driven
+
+context: |
+  Vorkan-PM: agente PMO de VortexBird construido sobre el CLI opencode.
+  El producto NO es código de aplicación: son 25 skills, 31 comandos y 18 playbooks
+  en Markdown, más los scripts que los instalan en el equipo de un Project Manager.
+  Usuario final: PM sin perfil técnico, Windows 10/11; el autor trabaja en macOS.
+  Hoy se distribuye como ZIP + INSTALAR.bat + instalar-windows.ps1.
+  Idioma de documentación y dominio: español. Identificadores y commits: inglés.

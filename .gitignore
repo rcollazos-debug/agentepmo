@@ -4,16 +4,28 @@
 
 # Node
 node_modules/
-package-lock.json
-bun.lock
+*.tgz
 
-# Secretos
-agents/chatpm/mcp/.env
+# Configuración local de herramientas de desarrollo (contiene secretos)
+.claude/
 
-# Salidas generadas (PPTX, DOCX, etc.)
-output/*.pptx
-output/*.docx
-output/*.pdf
-output/*.xlsx
-output/*.csv
-output/*.json
+# Datos del PM y respaldo de la instalación anterior — nunca se versionan ni empaquetan
+legacy/
+
+# Credenciales — cada PM usa las suyas, se entregan por canal privado
+credenciales/
+**/credenciales/
+**/credentials.json
+**/token.json
+**/tokens.json
+**/gcp-oauth.keys.json
+**/*oauth*.json
+**/.env
+*.env
+
+# Salidas generadas
+output/
+*.pptx
+*.docx
+*.pdf
+*.xlsx

@@ -1,0 +1,31 @@
+{
+  "name": "@vortexbird/vorkanpm",
+  "version": "1.0.0",
+  "description": "Instalador y gestor de Vorkan-PM, el agente PMO de VortexBird sobre opencode",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "vorkanpm": "cli/bin/vorkanpm.js"
+  },
+  "files": [
+    "cli/",
+    "agent/",
+    "bootstrap/"
+  ],
+  "scripts": {
+    "verify-package": "node scripts/verify-package.js",
+    "prepublishOnly": "node scripts/verify-package.js"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vortexbird/vorkanpm.git"
+  },
+  "license": "UNLICENSED",
+  "private": false
+}
