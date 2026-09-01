@@ -16,6 +16,7 @@ const AYUDA = `
     vorkanpm revisar [--validar]             Aportes de otros PM pendientes de validar
     vorkanpm titularidad [--ceder <correo>]  Consulta o cambia el PM titular
     vorkanpm update [--version <v>]          Actualiza el agente sin tocar tus proyectos
+    vorkanpm update --solo-local             Aplica el cuerpo que ya tienes en disco (sin descargar)
     vorkanpm doctor                          Revisa la instalacion y dice como arreglarla
 
   Opciones:

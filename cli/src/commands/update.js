@@ -1,6 +1,6 @@
 import path from 'node:path'
 import { spawnSync } from 'node:child_process'
-import { packagedAgentDir } from '../lib/paths.js'
+import { packagedAgentDir, packageRoot } from '../lib/paths.js'
 import { existe, leerJson } from '../lib/fsx.js'
 import { instalarCuerpo } from '../lib/install.js'
 import { generarConfigGlobal } from '../lib/config.js'
@@ -14,6 +14,22 @@ function valorDe (args, bandera) {
   return i >= 0 && args[i + 1] && !args[i + 1].startsWith('--') ? args[i + 1] : null
 }
 
+/** ¿El CLI corre desde una copia de trabajo enlazada con `npm link`? */
+function esCopiaDeTrabajo () {
+  return existe(path.join(packageRoot(), '.git'))
+}
+
+/** ¿Esta configurado el registry privado para el scope en esta maquina? */
+function registryConfigurado () {
+  const npm = process.platform === 'win32' ? 'npm.cmd' : 'npm'
+  const scope = PAQUETE.split('/')[0]
+  const r = spawnSync(npm, ['config', 'get', `${scope}:registry`], {
+    encoding: 'utf8', shell: process.platform === 'win32'
+  })
+  const valor = (r.stdout || '').trim()
+  return valor && valor !== 'undefined' && !valor.includes('registry.npmjs.org')
+}
+
 /** Descarga la version pedida y devuelve el directorio del cuerpo recien instalado. */
 function descargar (destinoVersion) {
   const npm = process.platform === 'win32' ? 'npm.cmd' : 'npm'
@@ -21,10 +37,20 @@ function descargar (destinoVersion) {
     stdio: 'inherit', shell: process.platform === 'win32'
   })
   if (r.status !== 0) {
-    throw new ErrorDeUsuario(
-      'No se pudo descargar la version nueva del agente.',
-      'Comprueba tu conexion y que el acceso al registry privado sigue vigente. Si caduco, pide al administrador un token nuevo.'
-    )
+    // Un 404 no es un problema de conexion. Mandar al usuario a mirar la red
+    // cuando el paquete no existe o el registry no esta configurado le hace
+    // perder el tiempo en el sitio equivocado.
+    const remedios = []
+    if (!registryConfigurado()) {
+      remedios.push('Este equipo no tiene configurado el repositorio privado de VortexBird, asi que npm lo busco en el publico. Pide al administrador el instalador, que lo configura.')
+    }
+    if (esCopiaDeTrabajo()) {
+      remedios.push('Estas usando una instalacion enlazada al repositorio de codigo. Para aplicar los cambios que ya tienes en disco: vorkanpm update --solo-local')
+    }
+    if (!remedios.length) {
+      remedios.push('Comprueba tu conexion. Si el acceso caduco, pide al administrador un instalador con el token renovado.')
+    }
+    throw new ErrorDeUsuario('No se pudo descargar la version nueva del agente.', remedios.join('\n\n      '))
   }
   const raizGlobal = spawnSync(npm, ['root', '-g'], { encoding: 'utf8', shell: process.platform === 'win32' }).stdout.trim()
   const paquete = path.join(raizGlobal, ...PAQUETE.split('/'))
@@ -43,6 +69,7 @@ export default async function update (args) {
   const pedida = valorDe(args, '--version') || 'latest'
 
   titulo('Actualizar Vorkan-PM')
+  if (soloLocal) nota('Modo local: se instala el cuerpo que ya tienes en disco, sin descargar nada.')
   const anterior = versionInstalada()
   if (!anterior) {
     throw new ErrorDeUsuario('No hay ninguna instalacion que actualizar.', 'Ejecuta primero: vorkanpm setup')

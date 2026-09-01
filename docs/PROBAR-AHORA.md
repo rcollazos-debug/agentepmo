@@ -133,6 +133,18 @@ y qué escribieron otros. Útil también para ti si algo no cuadra.
 
 ---
 
+## Actualizar mientras no esté publicado
+
+`vorkanpm update` descarga del repositorio privado, que todavía no existe. Mientras tanto, con
+la instalación enlazada al repositorio de código:
+
+```bash
+vorkanpm update --solo-local
+```
+
+Aplica el cuerpo que ya tienes en disco, sin descargar nada. Es lo que necesitas cada vez que
+edites un skill o un comando y quieras probarlo.
+
 ## Deshacerlo todo
 
 ```bash
