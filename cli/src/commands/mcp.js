@@ -44,7 +44,11 @@ const servidores = {
     if (modo !== 'auth' && !existe(t.gmailToken)) {
       fallar('Gmail no esta autorizado en este equipo. Ejecuta: vorkanpm mcp gmail --auth')
     }
-    relevar(npx(), ['-y', '@gongrzhe/server-gmail-autoauth-mcp', ...(modo === 'auth' ? ['auth'] : [])])
+    // El servidor busca ~/.gmail-mcp/ relativo a HOME; apuntamos HOME a la
+    // carpeta de credenciales para que todo quede en un solo lugar.
+    relevar(npx(), ['-y', '@gongrzhe/server-gmail-autoauth-mcp', ...(modo === 'auth' ? ['auth'] : [])], {
+      HOME: t.base
+    })
   },
 
   'google-calendar' (modo) {

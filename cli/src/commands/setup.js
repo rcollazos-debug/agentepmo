@@ -1,6 +1,6 @@
 import path from 'node:path'
 import os from 'node:os'
-import { packagedAgentDir, agentHome, packageRoot } from '../lib/paths.js'
+import { packagedAgentDir, agentHome, packageRoot, guardarCredentialsHome, credentialsHome } from '../lib/paths.js'
 import { existe } from '../lib/fsx.js'
 import { comprobarPrerrequisitos, primerFalloObligatorio } from '../lib/prereq.js'
 import { instalarCuerpo } from '../lib/install.js'
@@ -8,7 +8,7 @@ import { generarConfigGlobal } from '../lib/config.js'
 import { instalarCredenciales } from '../lib/credentials.js'
 import { versionPaquete, versionInstalada } from '../lib/manifest.js'
 import { ejecutarInteractivo, resolverOpencode } from '../lib/proc.js'
-import { titulo, paso, ok, aviso, nota, linea, esperarEnter, ErrorDeUsuario } from '../lib/ui.js'
+import { titulo, paso, ok, aviso, nota, linea, preguntar, esperarEnter, ErrorDeUsuario } from '../lib/ui.js'
 
 function localizarCredenciales (args) {
   const i = args.indexOf('--credenciales')
@@ -45,7 +45,24 @@ export default async function setup (args) {
   paso('Generando la configuracion')
   ok(`Configuracion escrita en ${generarConfigGlobal()}`)
 
-  // --- 4. Credenciales ---
+  // --- 4. Carpeta de credenciales ---
+  linea()
+  paso('Carpeta de credenciales')
+  const defaultCred = credentialsHome()
+  let dirCred
+  if (sinAutenticar) {
+    // En modo no interactivo se usa el valor ya guardado o el defecto
+    dirCred = defaultCred
+    nota(`Carpeta de credenciales: ${dirCred}`)
+  } else {
+    console.log('  Aqui se guardaran TODAS las credenciales (tokens OAuth, claves de API).')
+    nota('Elige una carpeta fuera del repo y de la nube — solo tu equipo la ve.')
+    dirCred = await preguntar('Carpeta de credenciales', { porDefecto: defaultCred })
+  }
+  guardarCredentialsHome(dirCred)
+  ok(`Carpeta de credenciales: ${dirCred}`)
+
+  // --- 5. Instalar credenciales desde la carpeta del administrador ---
   linea()
   paso('Instalando las credenciales de la organizacion')
   const carpeta = localizarCredenciales(args)
@@ -61,7 +78,7 @@ export default async function setup (args) {
     }
   }
 
-  // --- 5. Conexion de cuentas ---
+  // --- 6. Conexion de cuentas ---
   const pendientes = []
   if (sinAutenticar) {
     linea()
@@ -99,7 +116,7 @@ export default async function setup (args) {
     await autorizar('google-chat', 'Google Chat', tiene('Google Chat'))
   }
 
-  // --- 6. Resumen ---
+  // --- 7. Resumen ---
   linea()
   titulo('Instalacion terminada')
   ok(`Vorkan-PM ${version} listo en ${agentHome()}`)

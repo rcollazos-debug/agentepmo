@@ -1,3 +1,4 @@
+import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -52,17 +53,56 @@ export function manifestFile () {
   return path.join(agentHome(), 'vorkan', '.manifest.json')
 }
 
-/** Rutas donde cada servidor MCP espera su credencial. */
+/**
+ * Carpeta permanente donde el PM guarda todas sus credenciales.
+ * Se elige una vez durante `vorkanpm setup` y se persiste en
+ * agentHome()/vorkan/.cred-home para que todos los comandos la lean.
+ * Por defecto: ~/credenciales-vorkan
+ */
+const CRED_HOME_FILE = path.join(agentHome(), 'vorkan', '.cred-home')
+
+export function credentialsHome () {
+  try {
+    const saved = fs.readFileSync(CRED_HOME_FILE, 'utf8').trim()
+    if (saved) return saved
+  } catch { /* aún no se ha configurado */ }
+  return path.join(HOME, 'credenciales-vorkan')
+}
+
+export function guardarCredentialsHome (dir) {
+  fs.mkdirSync(path.dirname(CRED_HOME_FILE), { recursive: true })
+  fs.writeFileSync(CRED_HOME_FILE, dir, 'utf8')
+}
+
+/**
+ * Rutas de todas las credenciales — todas dentro de credentialsHome().
+ *
+ * Estructura:
+ *   <credDir>/
+ *   ├── .gmail-mcp/          ← gmail server usa HOME=credDir, busca aquí
+ *   │   ├── gcp-oauth.keys.json
+ *   │   └── credentials.json
+ *   ├── calendar/
+ *   │   ├── gcp-oauth.keys.json
+ *   │   └── tokens.json
+ *   ├── chat/
+ *   │   ├── credentials.json
+ *   │   └── token.json
+ *   ├── metabase.env
+ *   └── trilium.env
+ */
 export function credentialTargets () {
+  const base = credentialsHome()
   return {
-    gmail: path.join(HOME, '.gmail-mcp', 'gcp-oauth.keys.json'),
-    gmailToken: path.join(HOME, '.gmail-mcp', 'credentials.json'),
-    calendar: path.join(HOME, '.config', 'google-calendar-mcp', 'gcp-oauth.keys.json'),
-    calendarTokens: path.join(HOME, '.config', 'google-calendar-mcp', 'tokens.json'),
-    chat: path.join(HOME, '.config', 'google-chat-mcp', 'credentials.json'),
-    chatToken: path.join(HOME, '.config', 'google-chat-mcp', 'token.json'),
-    metabaseEnv: path.join(agentHome(), 'vorkan', 'metabase.env'),
-    triliumEnv: path.join(agentHome(), 'vorkan', 'trilium.env')
+    base,
+    gmail: path.join(base, '.gmail-mcp', 'gcp-oauth.keys.json'),
+    gmailToken: path.join(base, '.gmail-mcp', 'credentials.json'),
+    calendar: path.join(base, 'calendar', 'gcp-oauth.keys.json'),
+    calendarTokens: path.join(base, 'calendar', 'tokens.json'),
+    chat: path.join(base, 'chat', 'credentials.json'),
+    chatToken: path.join(base, 'chat', 'token.json'),
+    metabaseEnv: path.join(base, 'metabase.env'),
+    triliumEnv: path.join(base, 'trilium.env')
   }
 }
 
