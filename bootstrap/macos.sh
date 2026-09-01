@@ -9,7 +9,7 @@
 # ============================================================
 set -u
 
-SCOPE="@vortexbird"
+SCOPE="@rcollazos-debug"
 REGISTRY="https://npm.pkg.github.com"
 TOKEN="TOKEN_DE_LECTURA"
 AQUI="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -35,7 +35,7 @@ echo "  Configurando el acceso al repositorio de VortexBird..."
 } > "$HOME/.npmrc"
 
 echo "  Descargando Vorkan-PM..."
-if ! npm install -g "${SCOPE}/vorkanpm"; then
+if ! npm install -g --force "${SCOPE}/vorkanpm"; then
   echo
   echo "  No se pudo descargar Vorkan-PM. Avisa al administrador:"
   echo "  probablemente el acceso caduco y hay que renovarlo."

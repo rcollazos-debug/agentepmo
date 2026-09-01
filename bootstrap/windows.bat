@@ -9,7 +9,7 @@ rem   Este archivo se entrega por canal privado, junto a la carpeta
 rem   "credenciales" — nunca por correo masivo ni repositorios.
 rem ============================================================
 setlocal
-set "SCOPE=@vortexbird"
+set "SCOPE=@rcollazos-debug"
 set "REGISTRY=https://npm.pkg.github.com"
 set "TOKEN=TOKEN_DE_LECTURA"
 
@@ -57,7 +57,7 @@ echo   Configurando el acceso...
 
 rem --- 4. El CLI ---
 echo   Descargando Vorkan-PM...
-call npm install -g %SCOPE%/vorkanpm
+call npm install -g --force %SCOPE%/vorkanpm
 if errorlevel 1 (
   echo.
   echo   No se pudo descargar Vorkan-PM. Avisa al administrador:
