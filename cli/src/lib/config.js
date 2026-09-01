@@ -20,7 +20,6 @@ export const SERVIDORES_MCP = {
   gmail: { obligatorio: true, etiqueta: 'Gmail' },
   'google-calendar': { obligatorio: false, etiqueta: 'Google Calendar' },
   'google-chat': { obligatorio: false, etiqueta: 'Google Chat' },
-  metabase: { obligatorio: false, etiqueta: 'Metabase' },
   trilium: { obligatorio: false, etiqueta: 'Trilium (repositorio de proyectos)' },
   notebooklm: { obligatorio: false, etiqueta: 'NotebookLM' }
 }

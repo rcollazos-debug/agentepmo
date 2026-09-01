@@ -1,6 +1,6 @@
 {
-  "name": "@vortexbird/vorkanpm",
-  "version": "1.0.1",
+  "name": "@rcollazos-debug/vorkanpm",
+  "version": "1.0.2",
   "description": "Instalador y gestor de Vorkan-PM, el agente PMO de VortexBird sobre opencode",
   "type": "module",
   "engines": {
@@ -20,11 +20,11 @@
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com",
-    "access": "restricted"
+    "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vortexbird/vorkanpm.git"
+    "url": "git+https://github.com/rcollazos-debug/agentepmo.git"
   },
   "license": "UNLICENSED",
   "private": false
