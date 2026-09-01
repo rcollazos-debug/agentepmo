@@ -110,3 +110,29 @@ El MCP `google-chat` conecta directo usando el wrapper.
 
 ## Referencia
 https://www.npmjs.com/package/google-chat-mcp
+
+
+---
+
+## Error `redirect_uri_mismatch` al autorizar
+
+Si al autorizar Google responde *"No puedes iniciar sesión en esta aplicación porque no cumple
+con la política OAuth 2.0"* con `redirect_uri=http://localhost:9090/callback`, la causa es el
+**tipo de cliente OAuth**.
+
+El servidor de Chat necesita un cliente de tipo **Aplicación web**, porque es el único que
+permite registrar un URI de redirección con ruta (`/callback`). Un cliente de tipo
+**Escritorio** no lo admite: Google rechaza la petición aunque el JSON declare ese URI.
+
+Cómo comprobarlo sin abrir la consola:
+
+```bash
+python3 -c "import json;d=json.load(open('$HOME/.config/google-chat-mcp/credentials.json'));print(list(d)[0])"
+```
+
+- `web` → correcto
+- `installed` → es un cliente de Escritorio; hay que rehacerlo
+
+En la consola de Google Cloud: crear credencial **OAuth client ID → Web application**, añadir
+`http://localhost:9090/callback` como *Authorized redirect URI*, descargar el JSON y usarlo
+como `chat-credentials.json`.

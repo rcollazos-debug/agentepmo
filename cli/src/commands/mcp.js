@@ -41,12 +41,18 @@ const servidores = {
   gmail (modo) {
     const t = credentialTargets()
     if (!existe(t.gmail)) fallar('Falta la credencial de Gmail. Ejecuta: vorkanpm setup')
+    if (modo !== 'auth' && !existe(t.gmailToken)) {
+      fallar('Gmail no esta autorizado en este equipo. Ejecuta: vorkanpm mcp gmail --auth')
+    }
     relevar(npx(), ['-y', '@gongrzhe/server-gmail-autoauth-mcp', ...(modo === 'auth' ? ['auth'] : [])])
   },
 
   'google-calendar' (modo) {
     const t = credentialTargets()
     if (!existe(t.calendar)) fallar('Falta la credencial de Google Calendar. Ejecuta: vorkanpm setup')
+    if (modo !== 'auth' && !existe(t.calendarTokens)) {
+      fallar('Google Calendar no esta autorizado en este equipo. Ejecuta: vorkanpm mcp google-calendar --auth')
+    }
     relevar(npx(), ['-y', '@cocal/google-calendar-mcp', ...(modo === 'auth' ? ['auth'] : [])], {
       GOOGLE_OAUTH_CREDENTIALS: t.calendar,
       GOOGLE_CALENDAR_MCP_TOKEN_PATH: t.calendarTokens
@@ -58,9 +64,17 @@ const servidores = {
    * `registeredUri` sin puerto, lo que produce un error 400 de Google.
    * Se instala una copia cacheada y se corrige el redirect antes de arrancar.
    */
-  'google-chat' () {
+  'google-chat' (modo) {
     const t = credentialTargets()
     if (!existe(t.chat)) fallar('Falta la credencial de Google Chat. Ejecuta: vorkanpm setup')
+
+    // Sin token, el servidor abre el navegador para autorizar. Al arrancarlo
+    // opencode en cada sesion, eso secuestra el arranque del agente con una
+    // pantalla de Google. Una integracion opcional sin autorizar debe
+    // degradar en silencio, no interrumpir.
+    if (modo !== 'auth' && !existe(t.chatToken)) {
+      fallar('Google Chat no esta autorizado en este equipo. Ejecuta: vorkanpm mcp google-chat --auth')
+    }
 
     const cache = path.join(HOME, '.cache', 'google-chat-mcp-vorkanpm')
     const entrada = path.join(cache, 'node_modules', 'google-chat-mcp', 'dist', 'index.js')
