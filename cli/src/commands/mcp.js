@@ -115,6 +115,7 @@ const servidores = {
     const { Trilium, configTrilium } = await import('../lib/trilium.js')
     const { crearHerramientas } = await import('../lib/trilium-tools.js')
     const { servirMcp } = await import('../lib/mcp-server.js')
+    const { versionPaquete } = await import('../lib/manifest.js')
 
     const cfg = configTrilium()
     if (!cfg.url || !cfg.token) fallar('Falta la configuracion de Trilium (URL o token). Ejecuta: vorkanpm setup')
@@ -124,7 +125,7 @@ const servidores = {
 
     servirMcp({
       nombre: 'vorkanpm-trilium',
-      version: '1.0.0',
+      version: versionPaquete(),
       herramientas: crearHerramientas({
         proyectoId,
         trilium: new Trilium(cfg),

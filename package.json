@@ -1,6 +1,6 @@
 {
   "name": "@vortexbird/vorkanpm",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Instalador y gestor de Vorkan-PM, el agente PMO de VortexBird sobre opencode",
   "type": "module",
   "engines": {

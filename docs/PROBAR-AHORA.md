@@ -2,7 +2,7 @@
 
 > Este manual es para **ti**, no para los PMs. Instala desde el repositorio local, sin
 > paquete publicado. El manual de los PMs es `MANUAL-USUARIO.md`, y será exacto cuando
-> se publique la versión 1.0.0.
+> se publique el paquete.
 
 ## Qué funciona hoy y qué no
 
@@ -40,7 +40,7 @@ Desde la raíz del repositorio:
 npm link
 ```
 
-Comprueba: `vorkanpm --version` debe responder `1.0.0`.
+Comprueba: `vorkanpm --version` debe responder la versión instalada (`1.0.1`).
 
 ## Paso 3 — Credenciales de Trilium
 
