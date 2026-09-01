@@ -86,13 +86,16 @@ export default async function update (args) {
     nueva = bajada.version
   }
 
-  if (nueva === anterior && !forzar) {
+  // En modo local no se comprueba la version: el objetivo es aplicar lo que hay
+  // en disco, y editar un skill sin subir la version es lo normal mientras se
+  // desarrolla. Negarse ahi vaciaria de sentido la opcion.
+  if (nueva === anterior && !forzar && !soloLocal) {
     linea()
     ok(`Ya estas en la ultima version (${anterior}). No hay nada que actualizar.`)
     return
   }
 
-  paso('Reemplazando el cuerpo del agente')
+  paso(soloLocal && nueva === anterior ? 'Reinstalando el cuerpo del agente' : 'Reemplazando el cuerpo del agente')
   nota('Tus proyectos no se tocan: solo se reescribe la instalacion global.')
   const r = instalarCuerpo(origen, nueva)
   ok(`${r.copiados} archivos instalados`)
@@ -103,7 +106,7 @@ export default async function update (args) {
   nota('Tus credenciales y autorizaciones se conservan intactas.')
 
   linea()
-  titulo(`Actualizado: ${anterior} -> ${nueva}`)
+  titulo(nueva === anterior ? `Reinstalado (${nueva})` : `Actualizado: ${anterior} -> ${nueva}`)
   nota('El cambio se aplica la proxima vez que abras el agente con `opencode`.')
   linea()
 }

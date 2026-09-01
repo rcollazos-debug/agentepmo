@@ -148,7 +148,11 @@ vorkanpm update --solo-local
 ```
 
 Aplica el cuerpo que ya tienes en disco, sin descargar nada. Es lo que necesitas cada vez que
-edites un skill o un comando y quieras probarlo.
+edites un skill, un comando o el `AGENT.md` y quieras probarlo: en modo local no comprueba la
+versión, así que reinstala aunque no la hayas subido.
+
+> Los cambios se ven al **abrir una sesión nueva** de `opencode`. Si la tenías abierta,
+> ciérrala y vuelve a entrar.
 
 ## Deshacerlo todo
 
