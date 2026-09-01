@@ -19,6 +19,20 @@ function localizarCredenciales (args) {
   return null
 }
 
+async function pedirRutaCredenciales () {
+  linea()
+  aviso('No encontre la carpeta de credenciales que entrega el administrador.')
+  nota('Esa carpeta contiene los archivos para conectar Gmail, Calendar, Chat y Metabase.')
+  linea()
+  console.log('  Opciones:')
+  nota('a) Si la tienes en tu computador: arrastrala a esta ventana y pulsa Enter.')
+  nota('b) Si no la tienes: pulsa Enter para continuar y pidele a Raul que te la envie.')
+  nota('   Cuando la recibas, vuelve a ejecutar el instalador (macos.sh / windows.bat).')
+  linea()
+  const ruta = await preguntar('Ruta de la carpeta (o Enter para saltar)')
+  return ruta ? path.resolve(ruta.trim().replace(/^'|'$/g, '').replace(/^"|"$/g, '')) : null
+}
+
 export default async function setup (args) {
   const sinAutenticar = args.includes('--sin-autenticar')
 
@@ -45,32 +59,23 @@ export default async function setup (args) {
   paso('Generando la configuracion')
   ok(`Configuracion escrita en ${generarConfigGlobal()}`)
 
-  // --- 4. Carpeta de credenciales ---
-  linea()
-  paso('Carpeta de credenciales')
-  const defaultCred = credentialsHome()
-  let dirCred
-  if (sinAutenticar) {
-    // En modo no interactivo se usa el valor ya guardado o el defecto
-    dirCred = defaultCred
-    nota(`Carpeta de credenciales: ${dirCred}`)
-  } else {
-    console.log('  Aqui se guardaran TODAS las credenciales (tokens OAuth, claves de API).')
-    nota('Elige una carpeta fuera del repo y de la nube — solo tu equipo la ve.')
-    dirCred = await preguntar('Carpeta de credenciales', { porDefecto: defaultCred })
-  }
+  // --- 4. Carpeta de credenciales (silenciosa) ---
+  // El PM no necesita elegir esto: siempre se usa el valor guardado o el defecto.
+  const dirCred = credentialsHome()
   guardarCredentialsHome(dirCred)
-  ok(`Carpeta de credenciales: ${dirCred}`)
+  nota(`Tus tokens se guardaran en: ${dirCred}`)
 
   // --- 5. Instalar credenciales desde la carpeta del administrador ---
   linea()
   paso('Instalando las credenciales de la organizacion')
-  const carpeta = localizarCredenciales(args)
+  let carpeta = localizarCredenciales(args)
+  if (!carpeta && !sinAutenticar && process.stdout.isTTY) {
+    carpeta = await pedirRutaCredenciales()
+  }
   let credenciales = []
   if (!carpeta) {
-    aviso('No encontre la carpeta "credenciales".')
-    nota('El agente queda instalado, pero sin conexion a Gmail, Calendar, Chat ni Metabase.')
-    nota('Pidesela al administrador y vuelve a ejecutar: vorkanpm setup --credenciales <ruta>')
+    aviso('Sin credenciales de la organizacion.')
+    nota('El agente queda instalado. Cuando tengas la carpeta, vuelve a ejecutar el instalador.')
   } else {
     credenciales = instalarCredenciales(carpeta)
     for (const c of credenciales) {
@@ -85,31 +90,45 @@ export default async function setup (args) {
     nota('Se omite la conexion de cuentas (--sin-autenticar).')
   } else {
     linea()
-    titulo('Conectar tus cuentas')
-    console.log('  Se abrira el navegador varias veces. En cada una:')
-    nota('1. Elige tu correo de VortexBird')
-    nota('2. Si aparece "Google no verifico esta app": Configuracion avanzada -> Ir a...')
-    nota('3. Pulsa PERMITIR')
+    titulo('Conectar tus cuentas de Google')
+    console.log('  Se abrira el navegador una vez por cada cuenta.')
+    nota('En cada ventana que se abra:')
+    nota('  1. Elige tu correo de VortexBird (@vortexbird.com)')
+    nota('  2. Si aparece una advertencia de Google (pantalla con texto rojo o naranja):')
+    nota('       haz clic en "Configuracion avanzada" (texto gris, parte inferior)')
+    nota('       luego haz clic en "Ir a Vorkan PM"')
+    nota('  3. Haz clic en "Continuar" o "Permitir"')
     linea()
-    await esperarEnter('Pulsa ENTER cuando estes listo')
+    await esperarEnter('Pulsa ENTER cuando estes listo para empezar')
 
     paso('Iniciando sesion en opencode (da acceso al modelo de IA)')
     if (!await ejecutarInteractivo(resolverOpencode() || 'opencode', ['auth', 'login'])) {
-      pendientes.push({ servicio: 'opencode', remedio: 'opencode auth login' })
+      pendientes.push({ servicio: 'opencode' })
       aviso('No se completo el inicio de sesion en opencode.')
     } else ok('Sesion de opencode iniciada')
 
     const entrada = path.join(packageRoot(), 'cli', 'bin', 'vorkanpm.js')
+
     const autorizar = async (servidor, etiqueta, instalada) => {
       if (!instalada) return
       paso(`Conectando ${etiqueta}`)
+      nota(`Se abrira el navegador. Elige tu correo de VortexBird y pulsa Permitir.`)
       const bien = await ejecutarInteractivo(process.execPath, [entrada, 'mcp', servidor, '--auth'])
-      if (bien) ok(`${etiqueta} conectado`)
-      else {
-        aviso(`${etiqueta} no quedo conectado.`)
-        pendientes.push({ servicio: etiqueta, remedio: `vorkanpm mcp ${servidor} --auth` })
+      if (bien) { ok(`${etiqueta} conectado`); return }
+
+      aviso(`${etiqueta} no quedo conectado.`)
+      if (process.stdout.isTTY) {
+        const reintentar = await preguntar('¿Intentarlo de nuevo? (s/N)')
+        if (reintentar.toLowerCase().startsWith('s')) {
+          nota(`Se abre el navegador otra vez. Elige tu correo de VortexBird y pulsa Permitir.`)
+          const bien2 = await ejecutarInteractivo(process.execPath, [entrada, 'mcp', servidor, '--auth'])
+          if (bien2) { ok(`${etiqueta} conectado`); return }
+          aviso(`${etiqueta} sigue sin conectar.`)
+        }
       }
+      pendientes.push({ servicio: etiqueta })
     }
+
     const tiene = (s) => credenciales.some((c) => c.servicio === s && c.instalada)
     await autorizar('gmail', 'Gmail', tiene('Gmail'))
     await autorizar('google-calendar', 'Google Calendar', tiene('Google Calendar'))
@@ -122,9 +141,10 @@ export default async function setup (args) {
   ok(`Vorkan-PM ${version} listo en ${agentHome()}`)
   if (pendientes.length) {
     linea()
-    aviso('Quedaron cosas pendientes:')
-    for (const p of pendientes) nota(`${p.servicio} — reintenta con: ${p.remedio}`)
-    nota('El agente funciona con las integraciones que si conectaron.')
+    aviso('Quedaron estas integraciones sin conectar:')
+    for (const p of pendientes) nota(`${p.servicio}`)
+    nota('Para conectarlas: vuelve a ejecutar el instalador (macos.sh / windows.bat).')
+    nota('El agente funciona normalmente con las integraciones que si quedaron conectadas.')
   }
   linea()
   console.log('  Para crear tu primer proyecto:')
