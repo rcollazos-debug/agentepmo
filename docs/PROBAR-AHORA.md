@@ -77,6 +77,11 @@ opencode
 ```
 
 El agente debería saludarte, reconocer el proyecto por la carpeta y tener sus 26 skills.
+
+> Dentro de una carpeta de proyecto, **Vorkan-PM es el único agente**: `init` desactiva ahí los
+> agentes generales de opencode para que no tengas que cambiar con Tab. Fuera de esa carpeta,
+> tu opencode sigue exactamente igual. Si creaste el proyecto con una versión anterior, ejecuta
+> `vorkanpm doctor` dentro y lo corrige.
 Prueba a pedirle *"dame el estado del proyecto"* o *"cómo van los riesgos"*.
 
 ## Paso 6 — Publicar en el repositorio

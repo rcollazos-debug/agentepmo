@@ -37,14 +37,31 @@ export function generarConfigGlobal ({ modelo = MODELO_POR_DEFECTO } = {}) {
 }
 
 /**
- * Configuracion del proyecto. Se queda deliberadamente minima: opencode la
- * fusiona con la global, y es el punto donde manana entrara el servidor MCP
- * de Trilium con la nota raiz de este proyecto.
+ * Configuracion del proyecto.
+ *
+ * Desactiva los agentes generales de opencode dentro de la carpeta del
+ * proyecto. Sin esto, el PM abre `opencode` y habla con el agente por defecto
+ * — que responde "soy tu asistente de IA" — en vez de con Vorkan-PM, y tendria
+ * que saber que hay que cambiar de agente con la tecla Tab.
+ *
+ * Solo afecta a esta carpeta: fuera de ella opencode sigue como siempre.
  */
 export function generarConfigProyecto (dir) {
   const archivo = path.join(dir, 'opencode.json')
-  escribirJson(archivo, { $schema: SCHEMA })
+  escribirJson(archivo, {
+    $schema: SCHEMA,
+    agent: {
+      build: { disable: true },
+      plan: { disable: true }
+    }
+  })
   return archivo
+}
+
+/** ¿La configuracion del proyecto deja a Vorkan-PM como unico agente? */
+export function configProyectoAlDia (dir) {
+  const c = leerJson(path.join(dir, 'opencode.json'), null)
+  return Boolean(c?.agent?.build?.disable)
 }
 
 export function configGlobalExiste () {
