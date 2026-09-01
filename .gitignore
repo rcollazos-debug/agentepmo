@@ -23,7 +23,8 @@ credenciales/
 **/.env
 *.env
 
-# Salidas generadas
+# Salidas generadas y distribuciones empaquetadas
+dist/
 output/
 *.pptx
 *.docx
